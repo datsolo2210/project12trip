@@ -7,11 +7,16 @@ import './quickReview.css';
 
 class QuickReview extends Component {
     render() {
+        let {hotel} = this.props;
         return (
             <div className="quick_review">
-                <Photo/>
+                <Photo
+                    photo ={hotel.photo}
+                />
                 <div className="location_content">
-                    <LocationAdress/>
+                    <LocationAdress
+                        address= {hotel.address}
+                    >{hotel.name}</LocationAdress>
                     <FormSubmit/>
                 </div>
             </div>

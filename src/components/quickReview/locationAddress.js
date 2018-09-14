@@ -9,10 +9,10 @@ class LocationAdress extends Component {
         return (
             <div>
                 <div >
-                    <a href="" target="_blank" className="location_name">Pho Ga 26</a>
+                    <a href="" target="_blank" className="location_name">{this.props.children}</a>
                 </div>
                 <div className="location_address">
-                    26 Luong Van Can, Hanoi 100000, Vietnam
+                    {this.props.address}
 			</div>
             </div>
         );
