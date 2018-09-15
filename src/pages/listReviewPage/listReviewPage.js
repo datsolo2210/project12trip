@@ -5,6 +5,7 @@ import '../../App.css';
 import ListQuickReview from '../../components/listQuickReview/listQuickReview';
 import { connect } from 'react-redux';
 import { actFetchHotelRequest } from '../../actions/index';
+import SearchArea from '../../components/searchArea/searchArea';
 
 class ListReviewPage extends Component {
 
@@ -18,6 +19,7 @@ class ListReviewPage extends Component {
         return (
                 <div className="content">
                     <div className="main">
+                        <SearchArea></SearchArea>
                         <ListQuickReview>
                             {this.showHotels(hotels)}
                         </ListQuickReview>
