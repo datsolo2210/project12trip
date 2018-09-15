@@ -17,7 +17,9 @@ class QuickReview extends Component {
                     <LocationAdress
                         address= {hotel.address}
                     >{hotel.name}</LocationAdress>
-                    <FormSubmit/>
+                    <FormSubmit 
+                        id={hotel.id}
+                    />
                 </div>
             </div>
         );
