@@ -23,43 +23,29 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.body{
+.body {
   margin: 0;
 }
 
-.content{
-	background-color: #f2f2f2;
+.content {
+  background-color: #f2f2f2;
   width: 100%;
   padding-top: 50px;
 }
 
-.main{
-	background-color: #f2f2f2;
-	width: 986px;
+.main {
+  background-color: #f2f2f2;
+  width: 986px;
   margin: auto;
-  
 
-}
 
-select {
-  margin-top: 0 !important;
-}
-
-.col-3, .col-6 {
-  padding-right: 0;
-}
-
-.btn-search {
-  background-color: #00a680;
-  color: #fff;
-  font-size: larger;
-  width: 100%;
-}
-
-.btn-search:hover {
-  background-color: #1abc9c;
 }

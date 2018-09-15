@@ -1,4 +1,4 @@
-.header{
+.header {
 	width: 100%;
 	height: 60px;
 	background-color: #00a680;
@@ -6,13 +6,13 @@
 	padding: 0px;
 }
 
-.header-content{
+.header-content {
 	margin: 0 35px;
 	padding: 0 24px;
 	height: 60px;
 }
 
-.header-left{
+.header-left {
 	float: left;
 	width: 50%;
 	padding: 0px;
@@ -20,19 +20,19 @@
 	height: 60px;
 }
 
-.header-right{
+.header-right {
 	float: right;
 	width: 50%;
 	height: 60px;
 
 }
 
-.icon-header{
+.icon-header {
 	height: 60px;
 	padding: 5px 0px;
 }
 
-.search-btn{
+.search-btn {
 	float: right;
 	background-color: #fff;
 	border: solid 1px #e5e5e5;
@@ -48,4 +48,28 @@
 	position: relative;
 	cursor: pointer;
 	margin-top: 12px;
+}
+
+select {
+	margin-top: 0 !important;
+}
+
+.col-3,
+.col-6 {
+	padding-right: 0;
+}
+
+.btn-search {
+	background-color: #00a680;
+	color: #fff;
+	font-size: larger;
+	width: 100%;
+}
+
+.btn-search:hover {
+	background-color: #1abc9c;
+}
+
+.custom-select-box {
+	max-width: 200px;
 }
