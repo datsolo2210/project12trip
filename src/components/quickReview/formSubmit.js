@@ -7,7 +7,12 @@ class FormSubmit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            rating: 0
+            rating: 0,
+            title_review: "",
+            your_review: "",
+            chkb: false,
+            month: ""
+
         };
         this.changeRating = this.changeRating.bind(this);
     }
@@ -28,13 +33,6 @@ class FormSubmit extends Component {
         return (
             <div>
                 <div>
-                    {/* <fieldset className="rating" id="rating">
-                        <input type="radio" id="star5" name="rating" defaultValue={5} /><label className="full" htmlFor="star5" title="Awesome - 5 stars" />
-                        <input type="radio" id="star4" name="rating" defaultValue={4} /><label className="full" htmlFor="star4" title="Pretty good - 4 stars" />
-                        <input type="radio" id="star3" name="rating" defaultValue={3} /><label className="full" htmlFor="star3" title="Meh - 3 stars" />
-                        <input type="radio" id="star2" name="rating" defaultValue={2} /><label className="full" htmlFor="star2" title="Kinda bad - 2 stars" />
-                        <input type="radio" id="star1" name="rating" defaultValue={1} /><label className="full" htmlFor="star1" title="Sucks big time - 1 star" />
-                    </fieldset> */}
                     <StarRatings
                         rating={this.state.rating}
                         starRatedColor="yellow"
@@ -50,24 +48,38 @@ class FormSubmit extends Component {
                     <form id="submit">
                         <div className="form-group">
                             <label className="title_review">Title of your review</label>
-                            <input type="text" name="title_review" placeholder="Summarize your visit or hightlight an interesting detail"
-                                className="submit_review form-control" />
+                            <input 
+                                type="text" 
+                                name="title_review" 
+                                placeholder="Summarize your visit or hightlight an interesting detail"
+                                className="submit_review form-control"                            
+                            />
                         </div>
                         <div className="form-group">
                             <label className="title_review">Your review</label>
-                            <textarea name="your_review" rows={4} cols={100} form="submit"
+                            <textarea 
+                                name="your_review" rows={4} cols={100} form="submit"
                                 placeholder="By sharing your experiences, you are helping traveles make better choices and plan their dream trips. Thanks you!"
-                                className="your_review form-control" defaultValue={""} />
+                                className="your_review form-control" 
+                                defaultValue={""} 
+                            />
                         </div>
                         <div className="form-group">
                             <label className="title_review">When did you travel?</label>
-                            <select className='form-control custom-select-box'>
+                            <select 
+                                className='form-control custom-select-box'
+                                name="month"
+                            >
                                 <option value="">Select one</option>
                                 {months}
                             </select>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox" name="checkbox" className="check_review form-check-input" />
+                            <input 
+                                type="checkbox" 
+                                name="chkb" 
+                                className="check_review form-check-input"                                    
+                            />
                             <label className="form-check-label">
                                 <small>
                                     I certify that this review is based on my own experience and is my genuine opinion of this hotel,

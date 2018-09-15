@@ -8,7 +8,7 @@ class Photo extends Component {
 
 		return (
 			<div className="location_photo">
-				<img src={this.props.photo} className="photo"></img>
+				<img src={this.props.photo} className="photo" alt="hotel"></img>
 			</div>
 		);
 	}
