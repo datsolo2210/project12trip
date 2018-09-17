@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './listQuickReview.css';
 class ListQuickReview extends Component {
   render() {
     return (

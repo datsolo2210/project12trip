@@ -49,3 +49,29 @@
 
 
 }
+
+#autocomplete ul {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  padding-right: 15px;
+}
+
+#autocomplete li:hover {
+  background-color: #00a680;
+  color: #ecf0f1;
+  cursor: pointer;
+}
+
+#results {
+  padding: 20px 0px;
+}
+
+#loading {
+  text-align: center;
+  padding: 15px;
+}
+
+#loading-image {
+  width: 30%;
+}

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import QuickReview from './components/quickReview/quickReview';
 import Header from './components/header/header';
-import './App.css';
-import ListQuickReview from './components/listQuickReview/listQuickReview';
+import './assets/css/App.css';
+import './assets/css/listQuickReview.css';
+import './assets/css/quickReview.css';
+import './assets/css/searchArea.css';
+import './assets/css/style.css';
 import routes from './routes';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 

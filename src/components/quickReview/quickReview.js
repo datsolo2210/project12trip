@@ -3,23 +3,20 @@ import Photo from './photo';
 import LocationAdress from './locationAddress';
 import FormSubmit from './formSubmit';
 
-import './quickReview.css';
-
 class QuickReview extends Component {
     render() {
-        let {hotel} = this.props;
+        var {hotel} = this.props;
+
         return (
             <div className="quick_review">
-                <Photo
-                    photo ={hotel.photo}
-                />
+                {
+                    hotel.photo ? <Photo photo ={hotel.photo.url_original} /> : <Photo photo="http://kalaharilifestyle.com/wp-content/uploads/2014/04/placeholder4.png"/>
+                }
                 <div className="location_content">
-                    <LocationAdress
-                        address= {hotel.address}
-                    >{hotel.name}</LocationAdress>
-                    <FormSubmit 
-                        id={hotel.id}
-                    />
+                    <LocationAdress address= {hotel.address}>
+                        {hotel.hotel_name}
+                    </LocationAdress>
+                    <FormSubmit id={hotel.hotel_id} />
                 </div>
             </div>
         );

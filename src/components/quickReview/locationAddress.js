@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import './quickReview.css';
-
-
 class LocationAdress extends Component {
     render() {
 

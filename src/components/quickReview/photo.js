@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import './quickReview.css';
-
-
 class Photo extends Component {
 	render() {
 

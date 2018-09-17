@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import '../login/login.css';
-import '../login/theme.css';
 import { Link } from 'react-router-dom';
 
 class Register extends Component {
@@ -18,7 +16,7 @@ class Register extends Component {
                     <div className="img-holder">
                         <div className="bg" />
                         <div className="info-holder">
-                            <img src="" alt="img" />
+                            <img src="https://png2.kisspng.com/20180514/qaw/kisspng-package-tour-travel-clip-art-5afa00b048d561.2859288615263336162983.png" alt="img" />
                         </div>
                     </div>
                     <div className="form-holder">

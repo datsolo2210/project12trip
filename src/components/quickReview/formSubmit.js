@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
 
-import './quickReview.css';
-
 class FormSubmit extends Component {
     constructor(props) {
         super(props);

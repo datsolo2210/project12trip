@@ -16,7 +16,7 @@
 }
 
 .website-logo .logo {
-    background-image: url("../../logo.png");
+    background-image: url("../../../logo.png");
 }
 
 .website-logo .logo img {
@@ -28,7 +28,7 @@
 }
 
 .website-logo-inside .logo {
-    background-image: url("../../logo.png");
+    background-image: url("../../../logo.png");
 }
 
 .website-logo-inside .logo img {
@@ -434,10 +434,10 @@
     }
 
     .website-logo .logo {
-        background-image: url("../../logo.png");
+        background-image: url("../../../logo.png");
     }
 
     .form-body.without-side .website-logo .logo {
-        background-image: url("../../logo.png");
+        background-image: url("../../../logo.png");
     }
 }

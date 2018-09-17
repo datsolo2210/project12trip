@@ -1,6 +1,24 @@
+/*------------------------------------------------------------------
+ * Theme Name: iofrm - form templates
+ * Theme URI: http://www.brandio.io/envato/iofrm
+ * Author: Brandio
+ * Author URI: http://www.brandio.io/
+ * Description: A Bootstrap Responsive HTML5 Template
+ * Version: 1.0
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Bootstrap v4.1 (http://getbootstrap.com)
+ * Copyright 2018 Brandio.
+ -------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[Table of contents]
 
+1. General Styles.
+2. Responsive Styles.
+-------------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
-
+/* -----------------------------------
+    1 - General Styles
+------------------------------------*/
 *, body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -45,7 +63,7 @@ html, body {
 
 .website-logo .logo {
     display: inline-block;
-    background-image: url("../../logo.png");
+    /* background-image: url("../images/logo-light.svg"); */
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -72,7 +90,7 @@ html, body {
 
 .website-logo-inside .logo {
     display: inline-block;
-    background-image: url("../../logo.png");
+    /* background-image: url("../images/logo-light.svg"); */
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -138,7 +156,7 @@ html, body {
     top: 0;
     left: 0;
     width: 550px;
-    min-height: 700px;
+    /* min-height: 700px; */
     height: 100%;
     overflow: hidden;
     background-color: #000000;
@@ -193,7 +211,7 @@ html, body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../../logo.png");
+    /* background-image: url("../images/img1.jpg"); */
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -1140,7 +1158,7 @@ html, body {
 }
 
 .form-body.without-side .website-logo-inside .logo {
-    background-image: url("../../logo.png");
+    /* background-image: url("../images/logo-dark.svg"); */
 }
 
 .form-body.without-side .form-holder .form-content ::-webkit-input-placeholder {
@@ -1589,7 +1607,7 @@ html, body {
     }
 
     .website-logo .logo {
-        background-image: url("../../logo.png");
+        /* background-image: url("../images/logo-light.svg"); */
     }
 
     .form-body.without-side .img-holder {
@@ -1597,7 +1615,7 @@ html, body {
     }
 
     .form-body.without-side .website-logo .logo {
-        background-image: url("../../logo.png");
+        /* background-image: url("../images/logo-light.svg"); */
     }
 
     .form-body.without-side .form-holder .form-content {

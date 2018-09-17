@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import hotels from './review';
+import hotel from './hotel';
 
 const appReducers = combineReducers({
-    hotels
+    hotel
 });
 
 export default appReducers;

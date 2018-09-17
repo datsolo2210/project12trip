@@ -1,30 +1,150 @@
 import React, { Component } from 'react';
 import QuickReview from '../../components/quickReview/quickReview';
-// import Header from '../../components/header';
-import '../../App.css';
 import ListQuickReview from '../../components/listQuickReview/listQuickReview';
 import { connect } from 'react-redux';
-import { actFetchHotelRequest } from '../../actions/index';
-import SearchArea from '../../components/searchArea/searchArea';
+import { fetchHotels, fetchAutocomplete } from '../../actions/HotelActions';
 
 class ListReviewPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+            suggestions: [],
+            query: {},
+            hotels: []
+        };
+    }
 
-    componentDidMount(){
-        this.props.fetchAllHotel();
-        console.log('did mount');
+    componentDidMount() {
+        
+    }
+
+    onAutocomplete(event) {
+        document.getElementById("autocomplete").classList.remove('d-none');
+        this.props.fetchAutocomplete(event.target.value).then((res) => {
+            if(res.status === 'ko') this.setState({suggestions: []});
+            this.setState({suggestions: this.props.suggestions});
+        });
+        
+    }
+
+    updateLocation(item) {
+        document.getElementById("keyword").value = item.text;
+        document.getElementById("autocomplete").classList.add('d-none');
+        this.setState({
+            query: {
+                ...this.state.query,
+                type: item.type,
+                id: item.id,
+            }
+        });
+    }
+
+    onChangeQuery(event) {
+        this.setState({
+            query: {
+                ...this.state.query,
+                [event.target.name]: event.target.value
+            }
+        });
+    }
+
+    onSubmit() {
+        document.getElementById('results').classList.remove('d-none');
+        this.props.fetchHotels(this.state.query).then(res => {
+            if(res) {
+                this.setState({hotels: res.payload})
+            }
+        });
     }
 
     render() {
-       var {hotels} = this.props;
+        var bedroomNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+
+        var { hotels } = this.state;
+
         return (
-                <div className="content">
-                    <div className="main">
-                        <SearchArea></SearchArea>
-                        <ListQuickReview>
-                            {this.showHotels(hotels)}
-                        </ListQuickReview>
+            <div className="content">
+                <div className="main">
+                    <div>
+                        <div className="text-center">
+                            <h1>Help us find your vacation rental</h1>
+                        </div>
+                        <div className="row">
+                            <div className="col-1"></div>
+                            <div className="col-10">
+                                <div className="row form-group">
+                                    <div className="col-6">
+                                        <label>Location</label>
+                                        <input type="text" className="form-control" placeholder="City/Region or Hotel" id="keyword" name="keyword" onChange={(event) => this.onAutocomplete(event)} required />
+                                        {
+                                            !this.state.suggestions ? null : (
+                                                <div id="autocomplete">
+                                                    <ul className="list-group">
+                                                        {
+                                                            this.state.suggestions.map((item, index) => {
+                                                                return (
+                                                                    <li className="list-group-item" key={index} onClick={() => this.updateLocation(item)}>{item.text}</li>
+                                                                )
+                                                            })
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                    <div className="col-3">
+                                        <label>Check in</label>
+                                        <input type="date" name="checkin" className="form-control" placeholder="Check in" onChange={(event) => this.onChangeQuery(event)}/>
+                                    </div>
+                                    <div className="col-3">
+                                        <label>Check out</label>
+                                        <input type="date" name="checkout" className="form-control" placeholder="Check out" onChange={(event) => this.onChangeQuery(event)}/>
+                                    </div>
+                                </div>
+                                <div className="row form-group">
+                                    <div className="col-6">
+                                        <label>Numbers of room</label>
+                                        <select className="custom-select" name="num_rooms" onChange={(event) => this.onChangeQuery(event)}>
+                                            <option>Select number of rooms</option>
+                                            {
+                                                bedroomNumbers.map((item, index) => {
+                                                    return (
+                                                        <option key={index} value={item}>{item}</option>
+                                                    );
+                                                })
+                                            }
+                                        </select>
+                                    </div>
+                                    <div className="col-6">
+                                        <input type="text" className="form-control" placeholder="Property ID (optional)" />
+                                    </div>
+                                </div>
+                                <div className="row form-group">
+                                    <div className="col-4"></div>
+                                    <div className="col-4">
+                                        <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental</button>
+                                    </div>
+                                    <div className="col-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="results" className="d-none">
+                    {
+                        hotels.length === 0 ? (
+                            <div id="loading">
+                                <img src="http://www.autopricemanager.com/img/widget-loader-lg-en.gif" id="loading-image" alt="Loading..."/>
+                            </div>
+                        ) : (
+                            <ListQuickReview>
+                                {this.showHotels(hotels)}
+                            </ListQuickReview>
+                        )
+                    }                          
                     </div>
                 </div>
+            </div>
 
         );
     }
@@ -35,10 +155,8 @@ class ListReviewPage extends Component {
         if (hotels.length > 0) {
             result = hotels.map((hotel, index) => {
                 return (
-                    <QuickReview 
-                    key={index} 
-                    hotel={hotel} ></QuickReview>
-            )
+                    <QuickReview key={index} hotel={hotel}></QuickReview>
+                )
             });
         }
         return result;
@@ -47,17 +165,17 @@ class ListReviewPage extends Component {
 
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        hotels: state.hotels
+        hotels: state.hotel.hotels,
+        suggestions: state.hotel.autocompleteResults
     }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAllHotel: () => {
-            dispatch(actFetchHotelRequest());
-        }
+        fetchHotels: (query) => dispatch(fetchHotels(query)),
+        fetchAutocomplete: (keyword) => dispatch(fetchAutocomplete(keyword))
     }
 }
 
