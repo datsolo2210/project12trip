@@ -17,7 +17,8 @@ export function callHotelApi(endpoint, method = 'GET', body) {
         url: Config.HOTEL_API + endpoint,
         data: body,
         headers: {
-            token: 'hjcqpoyu26rddjqgpv980mfafob',
+            // token: 'agxbzb4tl8x4ezsd58src03nqgl', // token for app.12trip.vn
+            token: 's8k8eg789q6xg7u8vu13efiloqa' // token for dev.12trip
         }
     }).catch(err => {
         console.log(err);

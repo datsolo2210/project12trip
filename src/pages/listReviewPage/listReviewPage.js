@@ -22,6 +22,7 @@ class ListReviewPage extends Component {
     onAutocomplete(event) {
         document.getElementById("autocomplete").classList.remove('d-none');
         this.props.fetchAutocomplete(event.target.value).then((res) => {
+            console.log(res);
             if(res.status === 'ko') this.setState({suggestions: []});
             this.setState({suggestions: this.props.suggestions});
         });
@@ -117,6 +118,7 @@ class ListReviewPage extends Component {
                                         </select>
                                     </div>
                                     <div className="col-6">
+                                        <label>Option (Chưa cần dùng)</label>
                                         <input type="text" className="form-control" placeholder="Property ID (optional)" />
                                     </div>
                                 </div>
