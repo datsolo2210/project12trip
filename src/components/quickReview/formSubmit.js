@@ -15,6 +15,8 @@ class FormSubmit extends Component {
         this.changeRating = this.changeRating.bind(this);
     }
 
+    
+
     changeRating(newRating, name) {
         this.setState({
             rating: newRating

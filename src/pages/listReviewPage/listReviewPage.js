@@ -15,12 +15,9 @@ class ListReviewPage extends Component {
         };
     }
 
-    componentDidMount() {
-        
-    }
-
     onAutocomplete(event) {
-        document.getElementById("autocomplete").classList.remove('d-none');
+        var autoComplete = document.getElementById("autocomplete");
+        if(autoComplete != null) autoComplete.classList.remove('d-none');
         this.props.fetchAutocomplete(event.target.value).then((res) => {
             console.log(res);
             if(res.status === 'ko') this.setState({suggestions: []});
@@ -75,9 +72,15 @@ class ListReviewPage extends Component {
                             <div className="col-1"></div>
                             <div className="col-10">
                                 <div className="row form-group">
-                                    <div className="col-6">
+                                    <div className="col-8">
                                         <label>Location</label>
-                                        <input type="text" className="form-control" placeholder="City/Region or Hotel" id="keyword" name="keyword" onChange={(event) => this.onAutocomplete(event)} required />
+                                        <input 
+                                            type="text" 
+                                            className="form-control" 
+                                            placeholder="City/Region or Hotel" 
+                                            id="keyword" name="keyword" 
+                                            onChange={(event) => this.onAutocomplete(event)} required 
+                                        />
                                         {
                                             !this.state.suggestions ? null : (
                                                 <div id="autocomplete">
@@ -94,16 +97,24 @@ class ListReviewPage extends Component {
                                             )
                                         }
                                     </div>
-                                    <div className="col-3">
+                                    {/* <div className="col-3">
                                         <label>Check in</label>
                                         <input type="date" name="checkin" className="form-control" placeholder="Check in" onChange={(event) => this.onChangeQuery(event)}/>
                                     </div>
                                     <div className="col-3">
                                         <label>Check out</label>
                                         <input type="date" name="checkout" className="form-control" placeholder="Check out" onChange={(event) => this.onChangeQuery(event)}/>
+                                    </div> */}
+                                    
+                                    
+                                    <div className="col-4" style={{marginTop: 5}}>
+                                        <br/>
+                                        <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental</button>
                                     </div>
+                                   
+                                
                                 </div>
-                                <div className="row form-group">
+                                {/* <div className="row form-group">
                                     <div className="col-6">
                                         <label>Numbers of room</label>
                                         <select className="custom-select" name="num_rooms" onChange={(event) => this.onChangeQuery(event)}>
@@ -121,14 +132,8 @@ class ListReviewPage extends Component {
                                         <label>Option (Chưa cần dùng)</label>
                                         <input type="text" className="form-control" placeholder="Property ID (optional)" />
                                     </div>
-                                </div>
-                                <div className="row form-group">
-                                    <div className="col-4"></div>
-                                    <div className="col-4">
-                                        <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental</button>
-                                    </div>
-                                    <div className="col-4"></div>
-                                </div>
+                                </div> */}
+                                
                             </div>
                         </div>
                     </div>
@@ -157,7 +162,7 @@ class ListReviewPage extends Component {
         if (hotels.length > 0) {
             result = hotels.map((hotel, index) => {
                 return (
-                    <QuickReview key={index} hotel={hotel}></QuickReview>
+                    <QuickReview key={hotel.hotel_id} hotel={hotel}></QuickReview>
                 )
             });
         }

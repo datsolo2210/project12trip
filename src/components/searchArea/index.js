@@ -17,10 +17,10 @@ class searchArea extends Component {
                                 <input type="text" className="form-control" placeholder="City/Region or Hotel" required />
                             </div>
                             <div className="col-3">
-                                <input type="date" className="form-control" placeholder="Check in"/>
+                                <input type="date" className="form-control" placeholder="Check in" />
                             </div>
                             <div className="col-3">
-                                <input type="date" className="form-control" placeholder="Check out"/>
+                                <input type="date" className="form-control" placeholder="Check out" />
                             </div>
                         </div>
                         <div className="row form-group">
