@@ -24,3 +24,13 @@ export function callHotelApi(endpoint, method = 'GET', body) {
         console.log(err);
     });
 };
+
+export function loginAPI( body){
+    return axios({
+        method: 'POST',
+        url: Config.LOGIN_API,
+        data: body
+    }).catch(err =>{
+        console.log(err);
+    });
+};

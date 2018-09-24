@@ -5,6 +5,7 @@ import './assets/css/listQuickReview.css';
 import './assets/css/quickReview.css';
 import './assets/css/searchArea.css';
 import './assets/css/style.css';
+import './assets/css/reviewDetail.css';
 import routes from './routes';
 import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 

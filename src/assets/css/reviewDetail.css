@@ -1,0 +1,58 @@
+.title-purpose{
+    font-size: 1.30em;
+    font-weight: bold;
+}
+
+.body-review{
+    background-color: white;
+    width: 986px;
+    margin: auto;
+    border: solid 1px #cbc1c1;
+    padding: 10px;
+}
+
+.review-detail{
+    background-color: #f2f2f2;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.mg-top-20{
+    margin-top: 20px;
+}
+
+.checkAnswer{
+    border: solid 1px #cbc1c1;
+    /* width: 100%; */
+    background-color: #f2f2f2;
+    padding: 10px;
+    /* display: inline; */
+    
+}
+
+.icon-check-answer{
+    width: 25px;
+    margin: 0px 10px;
+}
+
+.th-rate{
+    font-size: 1.15em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.icon-rate{
+    width: 20px;
+}
+
+.rate-area{
+    width: 100%;
+    border: 1px solid #cbc1c1;
+    border-collapse: collapse;
+}
+.btn{
+    width: 100%;
+    border: solid 1px;
+    border-radius: 0;
+    background: none;
+}

@@ -2,6 +2,7 @@ import ListReviewPage from './pages/listReviewPage/listReviewPage';
 import React from 'react';
 import LoginPage from './pages/loginPage/loginPage';
 import RegisterPage from './pages/registerPage/registerPage';
+import ReviewDetailPage from './pages/reviewDetailPage/ReviewDetailPage';
 
 const routes =[
     {
@@ -18,6 +19,12 @@ const routes =[
         path : '/register',
         exact: false,
         main: () => <RegisterPage></RegisterPage>
+    },
+    {
+        path : '/review-detail',
+        exact: false,
+        main : () => <ReviewDetailPage></ReviewDetailPage>
+
     }
 ];
 
