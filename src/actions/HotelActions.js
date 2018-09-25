@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi, loginAPI, callApi } from '../utils/apiCaller';
+import { callHotelApi, loginAPI } from '../utils/apiCaller';
 
 var date = new Date();
 var checkin = `${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate()}`;

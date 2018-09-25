@@ -1,5 +1,6 @@
 import * as Config from '../constants/config';
 import axios from 'axios';
+import {getCookie} from '../helper';
 
 export function callApi(endpoint, method = 'GET', body) {
     return axios({
@@ -18,7 +19,7 @@ export function callHotelApi(endpoint, method = 'GET', body) {
         data: body,
         headers: {
             // token: 'agxbzb4tl8x4ezsd58src03nqgl', // token for app.12trip.vn
-            token: 's8k8eg789q6xg7u8vu13efiloqa' // token for dev.12trip
+            token: getCookie('token') // token for dev.12trip
         }
     }).catch(err => {
         console.log(err);
