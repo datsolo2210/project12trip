@@ -3,6 +3,7 @@ import QuickReview from '../../components/quickReview/quickReview';
 import ListQuickReview from '../../components/listQuickReview/listQuickReview';
 import { connect } from 'react-redux';
 import { fetchHotels, fetchAutocomplete } from '../../actions/HotelActions';
+import {Link} from 'react-router-dom';
 
 class ListReviewPage extends Component {
     constructor(props) {
@@ -64,8 +65,10 @@ class ListReviewPage extends Component {
         return (
             <div className="content">
                 <div className="main">
+                    
                     <div>
                         <div className="text-center">
+                            <Link to='/review-detail'>Detail</Link>
                             <h1>Help us find your vacation rental</h1>
                         </div>
                         <div className="row">
