@@ -1,9 +1,6 @@
 import * as Types from '../constants/constant';
-<<<<<<< HEAD
-import { callHotelApi, loginAPI, callApi, registerAPI } from '../utils/apiCaller';
-=======
-import { callHotelApi, loginAPI } from '../utils/apiCaller';
->>>>>>> 04617fc65c499ab98395f70042264fcfb9bfcd75
+import { callHotelApi, loginAPI, registerAPI } from '../utils/apiCaller';
+
 
 var date = new Date();
 var checkin = `${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate()}`;
