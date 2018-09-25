@@ -1,37 +1,47 @@
 import React, { Component } from 'react';
 import '../../assets/css/registration/login.css';
 import '../../assets/css/registration/theme.css';
-import { actRegisterRequest } from '../../actions/HotelActions';
-import {Link} from 'react-router-dom';
+import { actRegisterRequest } from '../../actions/AuthActions';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Auth from '../../Auth';
 
 class RegisterPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: "",
-			email: "",
-			phone: "",
-			password: ""
+			newAccount: {
+				name: "",
+				email: "",
+				phone: "",
+				password: ""
+			}
 		};
 	}
 
 	onChange = (e) =>{
-		let target = e.target;
-		let name = target.name;
 		this.setState({
-			[name] : target.value
+			newAccount: {
+				...this.state.newAccount,
+				[e.target.name] : e.target.value
+			}
 		});
 	}
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		let newUser = this.state;
-		this.props.Register(newUser);
+		
+		Auth.authenticate(() => {
+			this.props.register(this.state.newAccount);
+		}); 
 	}
 
-
 	render() {
+
+		if (this.props.redirectToReferrer === true) {
+			return <Redirect to='/' />
+		}
+
 		return (
 			<div className="form-body">
 				<div className="row">
@@ -70,12 +80,16 @@ class RegisterPage extends Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapStateToProps = (state) => {
 	return {
-		Register : (newUser) => {
-			dispatch( actRegisterRequest(newUser));
-		}
+		redirectToReferrer: state.auth.redirectToReferrer, 
 	}
 }
 
-export default connect(null, mapDispatchToProps)(RegisterPage);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		register : (newAccount) => dispatch( actRegisterRequest(newAccount))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);

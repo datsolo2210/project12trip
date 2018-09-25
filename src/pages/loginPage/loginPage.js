@@ -12,35 +12,36 @@ class LoginPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			redirectToReferrer: false,
-			username: "",
-			password: ""
+			loginData: {
+				username: "",
+				password: ""	
+			}
 		};
 	}
 
 	onChange = (e) => {
 		this.setState({
-			[e.target.name]: e.target.value
+			loginData: {
+				...this.state.loginData,
+				[e.target.name]: e.target.value
+			}
 		});
 	};
 
 	login = (e) => {
 		e.preventDefault();
-		let login = this.state;
+		let login = this.state.loginData;
 		Auth.authenticate(() => {
-			this.props.userLogin(login);
-			this.setState({redirectToReferrer: true});
+			this.props.userLogin(login)
 		})
 		
 	}
 
 	render() {	
 		const { from } = this.props.location.state || { from: { pathname: "/" } };
-		const { redirectToReferrer } = this.state;
+		// const { redirectToReferrer } = this.state;
 
-		console.log(this.props);
-
-		if (redirectToReferrer === true) {
+		if (this.props.redirectToReferrer === true) {
 			return <Redirect to={from} />
 		}
 
@@ -80,7 +81,13 @@ class LoginPage extends Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapStateToProps = (state) => {
+	return {
+		redirectToReferrer: state.auth.redirectToReferrer, 
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
 	return {
 		userLogin: (login) => {
 			dispatch(actLoginRequest(login));
@@ -88,4 +95,4 @@ const mapDispatchToProps = (dispatch, props) => {
 	}
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(LoginPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));

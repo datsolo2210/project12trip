@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi, loginAPI, registerAPI } from '../utils/apiCaller';
+import { callHotelApi } from '../utils/apiCaller';
 
 
 var date = new Date();
@@ -46,29 +46,3 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
             console.log(err);
         })
 }
-
-
-export const actLoginRequest = (login) => (dispatch) => {
-    return loginAPI(login).then(res => {
-        console.log(res);
-        dispatch(actLogin(res.data.account));
-    });
-
-};
-
-export const actLogin = (user) => {
-    return {
-        type: Types.LOGIN,
-        payload: user
-    };
-};
-
-export const actRegisterRequest = (newUser) => (dispatch) => {
-    return registerAPI('account', 'POST', newUser).then(res => {
-        console.log(res);
-        dispatch({
-            type: Types.REGISTER,
-            payload: res.data
-        });
-    });
-};

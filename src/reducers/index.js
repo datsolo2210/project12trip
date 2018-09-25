@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import hotel from './hotel';
-import login from './login';
+import auth from './auth';
 
 const appReducers = combineReducers({
     hotel,
-    login
+    auth
 });
 
 export default appReducers;
