@@ -17,6 +17,10 @@
     padding-top: 50px;
 }
 
+.mg-top-40{
+    margin-top: 40px;
+}
+
 .mg-top-20{
     margin-top: 20px;
 }
@@ -50,9 +54,36 @@
     border: 1px solid #cbc1c1;
     border-collapse: collapse;
 }
-.btn{
+.btn-icon{
     width: 100%;
     border: solid 1px;
     border-radius: 0;
     background: none;
+}
+
+.btn-icon:hover{
+    background: #00a680;
+}
+
+.btn-icon:focus{
+    background: #00a680;
+}
+
+.col-3{
+    padding-right: 15px !important;
+}
+
+.optional{
+    font-size: 0.75em;
+}
+
+.btn-photo{
+    background-color: #00a680;
+    border: none;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }

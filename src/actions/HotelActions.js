@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi, loginAPI, callApi } from '../utils/apiCaller';
+import { callHotelApi, loginAPI, callApi, registerAPI } from '../utils/apiCaller';
 
 var date = new Date();
 var checkin = `${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate()}`;
@@ -49,7 +49,7 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
 
 export const actLoginRequest = (login) => (dispatch) => {
     return loginAPI(login).then(res => {
-        console.log(res)
+        console.log(res);
         dispatch(actLogin(res.data.account));
     });
 
@@ -60,4 +60,14 @@ export const actLogin = (user) => {
         type: Types.LOGIN,
         payload: user
     };
+};
+
+export const actRegisterRequest = (newUser) => (dispatch) => {
+    return registerAPI('account', 'POST', newUser).then(res => {
+        console.log(res);
+        dispatch({
+            type: Types.REGISTER,
+            payload: res.data
+        });
+    });
 };

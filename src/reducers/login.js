@@ -4,9 +4,12 @@ const login = (state = INIT_STATE, action) => {
     switch(action.type){
         case Types.LOGIN: {
             console.log(action.payload);
-            return action.payload;
-            
+            return action.payload;          
         }  
+        case Types.REGISTER: {
+            console.log(action.payload);
+            return action.payload;
+        }
         default: return state;
     }
 };

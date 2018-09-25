@@ -30,6 +30,7 @@ class Register extends Component {
                                 <form>
                                     <input className="form-control" type="text" name="name" placeholder="Full Name" required />
                                     <input className="form-control" type="email" name="email" placeholder="E-mail Address" required />
+                                    <input className="form-control" type="phone" name="phone" placeholder="Phone number" required />
                                     <input className="form-control" type="password" name="password" placeholder="Password" required />
                                     <div className="form-button">
                                         <button id="submit" type="submit" className="ibtn">Register</button>

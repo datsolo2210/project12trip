@@ -21,7 +21,7 @@ class ReviewDetail extends Component {
         return (
             <div className="review-detail">
                 <div className="body-review">
-                    <div className="mg-top-20">
+                    <div className="mg-top-40">
                         <h2 className="title-purpose">1. Purpose of your trip? *</h2>
                         {itemPurpose}
                     </div>
@@ -38,74 +38,74 @@ class ReviewDetail extends Component {
                         <span><img src={require('../../imgs/check-answer.png')} alt='icon' className="icon-check-answer" /></span>
                         <span>Thanks for your answer!</span>
                     </div>
-                    <div className="mg-top-20">
+                    <div className="mg-top-40">
                         <h2 className="title-purpose">2. Rate this property:</h2>
                         <label className="location_address">Your rating will impact the review score</label><br />
                         <label className="th-rate">Staff</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                         <label className="th-rate">Facilities</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                         <label className="th-rate">Cleanliness</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                         <label className="th-rate">Comfort</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                         <label className="th-rate">Value of money</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                         <label className="th-rate">Location</label>
                         <div className="row form-group">
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
-                            <div className="col-3 "><button className='btn'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie-face-md.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/smilie.png")} alt="icon" className="icon-rate" /></button></div>
+                            <div className="col-3 "><button className='btn-icon'><img src={require("../../imgs/happy.png")} alt="icon" className="icon-rate" /></button></div>
                         </div>
 
                     </div>
 
-                    <div className="mg-top-20">
+                    <div className="mg-top-40">
                         <h2 className="title-purpose">3. Could you tell us a little more?</h2>
                         <label className="th-rate">What did you like?</label>
                         <textarea
-                            name="your_review" rows={4} cols={100} form="submit"
+                            name="your_review" rows={4} cols={120} form="submit"
                             placeholder="Were the croissants extra flakey? the bed extra comfy?"
-                            className="your_review form-control"
+                            className=" form-control"
                             defaultValue={""}
                         />
 
                         <label className="th-rate">What didn't you like?</label>
                         <textarea
-                            name="your_review" rows={4} cols={100} form="submit"
+                            name="your_review" rows={4} cols={120} form="submit"
                             placeholder="What could have been better?"
-                            className="your_review form-control"
+                            className=" form-control"
                             defaultValue={""}
                         />
 
@@ -114,13 +114,23 @@ class ReviewDetail extends Component {
                         <input
                             type="text"
                             name="title_review"
-                            className="submit_review form-control"
+                            className="form-control"
                         />
                     </div>
 
-                    <div className="mg-top-20">
-                        <h2 className="title-purpose">4. Photos</h2>
+                    <div className="mg-top-40">
+                        <h2 className="title-purpose">4. Photos <span className="optional">(Optional)</span></h2>
+                        <label className="location_address">Adding photos of your stay helps others make informed decisions!</label><br />
                     </div>
+                    <div className="row form-group">
+                        <div className="col-3">
+                            <button className="btn-photo">Add property photos</button>
+                        </div>
+                        <div className="col-3">
+                            <button className="btn-photo">Add city photos</button>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
