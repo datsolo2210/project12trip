@@ -87,3 +87,66 @@
     margin-bottom: 15px;
     border-radius: 5px;
 }
+/* 
+* {
+    box-sizing: border-box;
+} */
+/* 
+body {
+    margin: 0;
+    font-family: Arial;
+} */
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column .img-detail {
+    opacity: 0.8; 
+    cursor: pointer; 
+    
+}
+.img-detail{
+    width: 100%;
+    max-height: 147px;
+}
+
+.show-img{
+    width: 100%;
+    height: auto;
+}
+
+.column .img-detail:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.bg{
+    background-color:  #00a680;
+}
+

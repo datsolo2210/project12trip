@@ -21,9 +21,9 @@ const routes =[
         main: () => <RegisterPage></RegisterPage>
     },
     {
-        path : '/review-detail',
+        path : '/review-detail/:id', 
         exact: false,
-        main : () => <ReviewDetailPage></ReviewDetailPage>
+        main : () => <ReviewDetailPage ></ReviewDetailPage>
 
     }
 ];
