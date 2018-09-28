@@ -21,7 +21,6 @@ class HeadReviewDetail extends Component {
         };
         let hotel = this.props.hotel;
         let photos = hotel.photos;
-        console.log(photos);
         let photo = photos.map((pho) => {
             return <div className="column" key={pho.photo_id}>
                 <img src={pho.url_original} className="img-detail" onClick={this.onShowImg} />

@@ -45,3 +45,14 @@ export function registerAPI(endpoint, method = 'GET', body) {
         console.log(err);
     });
 };
+
+
+// export function callReviewAPI(endpoint, method='POST', body){
+//     return axios({
+//         method: method,
+//         url: Config.API_URL + endpoint,
+//         data: body
+//     }).catch(err => {
+//         console.log(err);
+//     });
+// };
