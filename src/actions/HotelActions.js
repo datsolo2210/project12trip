@@ -46,3 +46,14 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
             console.log(err);
         })
 }
+
+export const actGetHotelRequest = (id) => (dispatch) => {
+    return callHotelApi(`hotel/detail?hotel_id=${id}&lang=vi`, 'GET', null).then(res => {
+        return dispatch({ type: Types.GET_HOTEL, payload: res.data })
+    })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+
