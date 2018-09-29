@@ -132,7 +132,7 @@ body {
 }
 
 /* The expanding image container */
-.container {
+.img-page {
     position: relative;
     display: none;
 }

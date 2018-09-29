@@ -40,7 +40,7 @@ class HeadReviewDetail extends Component {
                 <Slider {...settings}>
                     {photo}
                 </Slider>
-                <div className="container">
+                <div className="img-page">
                     <img id="expandedImg" className="show-img" />
                     <div id="imgtext" />
                 </div>
