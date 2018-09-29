@@ -4,7 +4,6 @@ import '../../assets/css/registration/theme.css';
 import { actRegisterRequest } from '../../actions/AuthActions';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import Auth from '../../Auth';
 
 class RegisterPage extends Component {
 	constructor(props) {
@@ -30,10 +29,7 @@ class RegisterPage extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		
-		Auth.authenticate(() => {
-			this.props.register(this.state.newAccount);
-		}); 
+		this.props.register(this.state.newAccount);
 	}
 
 	render() {

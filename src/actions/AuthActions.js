@@ -7,7 +7,7 @@ export const actLoginRequest = (login) => (dispatch) => {
     return callApi('login', 'POST', login).then(res => {
         var data = res.data;
         setCookie('token', data.token, 1);
-        setCookie('account', data.account._id, 1);
+        setCookie('session_id', data.sessionid, 1);
         dispatch({type: Types.LOGIN, payload: data.account});
     }).catch(err => {
         console.log(err);
@@ -19,7 +19,7 @@ export const actRegisterRequest = (newUser) => (dispatch) => {
     .then(res => {
         var data = res.data;
         setCookie('token', data.token, 1);
-        setCookie('account', data.account._id, 1);
+        setCookie('session_id', data.sessionid, 1);
         dispatch({
             type: Types.REGISTER,
             payload: data.account

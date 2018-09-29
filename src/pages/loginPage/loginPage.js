@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { actLoginRequest } from '../../actions/AuthActions';
 import { connect } from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
-import Auth from '../../Auth';
+
 
 class LoginPage extends Component {
 
@@ -31,10 +31,7 @@ class LoginPage extends Component {
 	login = (e) => {
 		e.preventDefault();
 		let login = this.state.loginData;
-		Auth.authenticate(() => {
-			this.props.userLogin(login)
-		})
-		
+		this.props.userLogin(login);
 	}
 
 	render() {	
