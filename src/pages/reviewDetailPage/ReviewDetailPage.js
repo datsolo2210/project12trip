@@ -27,27 +27,27 @@ class ReviewDetailPage extends Component {
             items: [
                 {
                     title: "Staff",
-                    level: 0
+                    level: 4
                 },
                 {
                     title: "Facilities",
-                    level: 0
+                    level: 4
                 },
                 {
                     title: "Cleanliness",
-                    level: 0
+                    level: 4
                 },
                 {
                     title: "Comfort",
-                    level: 0
+                    level: 4
                 },
                 {
-                    title: "Value for money",
-                    level: 0
+                    title: "Value of money",
+                    level: 4
                 },
                 {
                     title: "Location",
-                    level: 0
+                    level: 4
                 }
             ]
 
@@ -299,25 +299,25 @@ class ReviewDetailPage extends Component {
             let a = items[i];
             switch (i) {
                 case 0: {
-                    document.getElementById("Staff1").classList.remove('bg');
-                    document.getElementById("Staff2").classList.remove('bg');
-                    document.getElementById("Staff3").classList.remove('bg');
-                    document.getElementById("Staff4").classList.remove('bg');
+                    document.getElementById("Staff1").classList.remove('bg-button-icon');
+                    document.getElementById("Staff2").classList.remove('bg-button-icon');
+                    document.getElementById("Staff3").classList.remove('bg-button-icon');
+                    document.getElementById("Staff4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("Staff1").className = 'bg btn-icon';
+                            document.getElementById("Staff1").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("Staff2").className = 'bg  btn-icon';
+                            document.getElementById("Staff2").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("Staff3").className = 'bg  btn-icon';
+                            document.getElementById("Staff3").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("Staff4").className = 'bg  btn-icon';
+                            document.getElementById("Staff4").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         default: break;
@@ -325,25 +325,25 @@ class ReviewDetailPage extends Component {
                     break;
                 }
                 case 1: {
-                    document.getElementById("Facilities1").classList.remove('bg');
-                    document.getElementById("Facilities2").classList.remove('bg');
-                    document.getElementById("Facilities3").classList.remove('bg');
-                    document.getElementById("Facilities4").classList.remove('bg');
+                    document.getElementById("Facilities1").classList.remove('bg-button-icon');
+                    document.getElementById("Facilities2").classList.remove('bg-button-icon');
+                    document.getElementById("Facilities3").classList.remove('bg-button-icon');
+                    document.getElementById("Facilities4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("Facilities1").className = 'bg  btn-icon';
+                            document.getElementById("Facilities1").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("Facilities2").className = 'bg  btn-icon';
+                            document.getElementById("Facilities2").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("Facilities3").className = 'bg  btn-icon';
+                            document.getElementById("Facilities3").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("Facilities4").className = 'bg  btn-icon';
+                            document.getElementById("Facilities4").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         default: break;
@@ -351,25 +351,25 @@ class ReviewDetailPage extends Component {
                     break;
                 }
                 case 2: {
-                    document.getElementById("Cleanliness1").classList.remove('bg');
-                    document.getElementById("Cleanliness2").classList.remove('bg');
-                    document.getElementById("Cleanliness3").classList.remove('bg');
-                    document.getElementById("Cleanliness4").classList.remove('bg');
+                    document.getElementById("Cleanliness1").classList.remove('bg-button-icon');
+                    document.getElementById("Cleanliness2").classList.remove('bg-button-icon');
+                    document.getElementById("Cleanliness3").classList.remove('bg-button-icon');
+                    document.getElementById("Cleanliness4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("Cleanliness1").className = 'bg  btn-icon';
+                            document.getElementById("Cleanliness1").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("Cleanliness2").className = 'bg  btn-icon';
+                            document.getElementById("Cleanliness2").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("Cleanliness3").className = 'bg  btn-icon';
+                            document.getElementById("Cleanliness3").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("Cleanliness4").className = 'bg  btn-icon';
+                            document.getElementById("Cleanliness4").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         default: break;
@@ -377,25 +377,25 @@ class ReviewDetailPage extends Component {
                     break;
                 }
                 case 3: {
-                    document.getElementById("Comfort1").classList.remove('bg');
-                    document.getElementById("Comfort2").classList.remove('bg');
-                    document.getElementById("Comfort3").classList.remove('bg');
-                    document.getElementById("Comfort4").classList.remove('bg');
+                    document.getElementById("Comfort1").classList.remove('bg-button-icon');
+                    document.getElementById("Comfort2").classList.remove('bg-button-icon');
+                    document.getElementById("Comfort3").classList.remove('bg-button-icon');
+                    document.getElementById("Comfort4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("Comfort1").className = 'bg  btn-icon';
+                            document.getElementById("Comfort1").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("Comfort2").className = 'bg  btn-icon';
+                            document.getElementById("Comfort2").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("Comfort3").className = 'bg  btn-icon';
+                            document.getElementById("Comfort3").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("Comfort4").className = 'bg  btn-icon';
+                            document.getElementById("Comfort4").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         default: break;
@@ -403,25 +403,25 @@ class ReviewDetailPage extends Component {
                     break;
                 }
                 case 4: {
-                    document.getElementById("ValueOfMoney1").classList.remove('bg');
-                    document.getElementById("ValueOfMoney2").classList.remove('bg');
-                    document.getElementById("ValueOfMoney3").classList.remove('bg');
-                    document.getElementById("ValueOfMoney4").classList.remove('bg');
+                    document.getElementById("ValueOfMoney1").classList.remove('bg-button-icon');
+                    document.getElementById("ValueOfMoney2").classList.remove('bg-button-icon');
+                    document.getElementById("ValueOfMoney3").classList.remove('bg-button-icon');
+                    document.getElementById("ValueOfMoney4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("ValueOfMoney1").className = 'bg  btn-icon';
+                            document.getElementById("ValueOfMoney1").className = 'bg-button-icon  btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("ValueOfMoney2").className = 'bg btn-icon';
+                            document.getElementById("ValueOfMoney2").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("ValueOfMoney3").className = 'bg btn-icon';
+                            document.getElementById("ValueOfMoney3").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("ValueOfMoney4").className = 'bg btn-icon';
+                            document.getElementById("ValueOfMoney4").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         default: break;
@@ -429,25 +429,25 @@ class ReviewDetailPage extends Component {
                     break;
                 }
                 case 5: {
-                    document.getElementById("Location1").classList.remove('bg');
-                    document.getElementById("Location2").classList.remove('bg');
-                    document.getElementById("Location3").classList.remove('bg');
-                    document.getElementById("Location4").classList.remove('bg');
+                    document.getElementById("Location1").classList.remove('bg-button-icon');
+                    document.getElementById("Location2").classList.remove('bg-button-icon');
+                    document.getElementById("Location3").classList.remove('bg-button-icon');
+                    document.getElementById("Location4").classList.remove('bg-button-icon');
                     switch (a.level) {
                         case 1: {
-                            document.getElementById("Location1").className = 'bg btn-icon';
+                            document.getElementById("Location1").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 2: {
-                            document.getElementById("Location2").className = 'bg btn-icon';
+                            document.getElementById("Location2").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 3: {
-                            document.getElementById("Location3").className = 'bg btn-icon';
+                            document.getElementById("Location3").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         case 4: {
-                            document.getElementById("Location4").className = 'bg btn-icon';
+                            document.getElementById("Location4").className = 'bg-button-icon btn-icon';
                             break;
                         }
                         default: break;
@@ -473,7 +473,7 @@ class ReviewDetailPage extends Component {
             items: items
         };
         console.log(review);
-        if(travel_type=='' || travel_with=='' || expect_level=='') alert('vui lòng điền đầy đủ các trường');
+        if(travel_type.length===0|| travel_with.length===0 || expect_level.length===0 || text_dislike.length===0 || text_like === 0) alert('please ');
         else
         this.props.creatReview(review);
 
@@ -485,7 +485,7 @@ class ReviewDetailPage extends Component {
             [target.name] : target.value
         }, () => {console.log(this.state)})
         let {travel_type, travel_with, expect_level} = this.state;
-        if(travel_type!='' && travel_with!='' && expect_level!='') document.getElementById('thanks').classList.remove('d-none');
+        if(travel_type.length!==0 && travel_with.length!==0 && expect_level.length!==0) document.getElementById('thanks').classList.remove('d-none');
         // let type = target.type;
         // switch(type){
         //     case 'text': {
@@ -557,7 +557,7 @@ class ReviewDetailPage extends Component {
                         </div>
                         <div className="mg-top-40">
                             <h2 className="title-purpose">2. Rate this property:</h2>
-                            <label className="location_address">Your rating will impact the review score</label><br />
+                            <label className="location_address">Choose your ratting</label><br/>
                             <label className="th-rate">Staff</label>
                             <div className="row form-group">
                                 <div className="col-3 "><button className='btn-icon' name="Staff" id="Staff1" onClick={this.onClick} type="button"><img src={require("../../imgs/sad-icon.png")} alt="icon" className="icon-rate" /></button></div>

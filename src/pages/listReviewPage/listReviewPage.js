@@ -3,7 +3,7 @@ import QuickReview from '../../components/quickReview/quickReview';
 import ListQuickReview from '../../components/listQuickReview/listQuickReview';
 import { connect } from 'react-redux';
 import { fetchHotels, fetchAutocomplete } from '../../actions/HotelActions';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ListReviewPage extends Component {
     constructor(props) {
@@ -18,13 +18,13 @@ class ListReviewPage extends Component {
 
     onAutocomplete(event) {
         var autoComplete = document.getElementById("autocomplete");
-        if(autoComplete != null) autoComplete.classList.remove('d-none');
+        if (autoComplete != null) autoComplete.classList.remove('d-none');
         this.props.fetchAutocomplete(event.target.value).then((res) => {
             console.log(res);
-            if(res.status === 'ko') this.setState({suggestions: []});
-            this.setState({suggestions: this.props.suggestions});
+            if (res.status === 'ko') this.setState({ suggestions: [] });
+            this.setState({ suggestions: this.props.suggestions });
         });
-        
+
     }
 
     updateLocation(item) {
@@ -49,12 +49,15 @@ class ListReviewPage extends Component {
     }
 
     onSubmit() {
-        document.getElementById('results').classList.remove('d-none');
-        this.props.fetchHotels(this.state.query).then(res => {
-            if(res) {
-                this.setState({hotels: res.payload})
-            }
-        });
+        if (document.getElementById('keyword').value.length === 0) alert('you must choose a location');
+        else {
+            document.getElementById('results').classList.remove('d-none');
+            this.props.fetchHotels(this.state.query).then(res => {
+                if (res) {
+                    this.setState({ hotels: res.payload })
+                }
+            });
+        }
     }
 
     render() {
@@ -65,10 +68,10 @@ class ListReviewPage extends Component {
         return (
             <div className="content">
                 <div className="main">
-                    
+
                     <div>
                         <div className="text-center">
-                            <Link to='/review-detail'>Detail</Link>
+                            {/* <Link to='/review-detail'>Detail</Link> */}
                             <h1>Help us find your vacation rental</h1>
                         </div>
                         <div className="row">
@@ -77,12 +80,12 @@ class ListReviewPage extends Component {
                                 <div className="row form-group">
                                     <div className="col-8">
                                         <label>Location</label>
-                                        <input 
-                                            type="text" 
-                                            className="form-control" 
-                                            placeholder="City/Region or Hotel" 
-                                            id="keyword" name="keyword" 
-                                            onChange={(event) => this.onAutocomplete(event)} required 
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="City/Region or Hotel"
+                                            id="keyword" name="keyword"
+                                            onChange={(event) => this.onAutocomplete(event)} required
                                         />
                                         {
                                             !this.state.suggestions ? null : (
@@ -108,14 +111,14 @@ class ListReviewPage extends Component {
                                         <label>Check out</label>
                                         <input type="date" name="checkout" className="form-control" placeholder="Check out" onChange={(event) => this.onChangeQuery(event)}/>
                                     </div> */}
-                                    
-                                    
-                                    <div className="col-4" style={{marginTop: 5}}>
-                                        <br/>
-                                        <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental</button>
+
+
+                                    <div className="col-4" style={{ marginTop: 5 }}>
+                                        <br />
+                                        <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental </button>
                                     </div>
-                                   
-                                
+
+
                                 </div>
                                 {/* <div className="row form-group">
                                     <div className="col-6">
@@ -136,22 +139,22 @@ class ListReviewPage extends Component {
                                         <input type="text" className="form-control" placeholder="Property ID (optional)" />
                                     </div>
                                 </div> */}
-                                
+
                             </div>
                         </div>
                     </div>
                     <div id="results" className="d-none">
-                    {
-                        hotels.length === 0 ? (
-                            <div id="loading">
-                                <img src="http://www.autopricemanager.com/img/widget-loader-lg-en.gif" id="loading-image" alt="Loading..."/>
-                            </div>
-                        ) : (
-                            <ListQuickReview>
-                                {this.showHotels(hotels)}
-                            </ListQuickReview>
-                        )
-                    }                          
+                        {
+                            hotels.length === 0 ? (
+                                <div id="loading">
+                                    <img src="http://www.autopricemanager.com/img/widget-loader-lg-en.gif" id="loading-image" alt="Loading..." />
+                                </div>
+                            ) : (
+                                    <ListQuickReview>
+                                        {this.showHotels(hotels)}
+                                    </ListQuickReview>
+                                )
+                        }
                     </div>
                 </div>
             </div>
