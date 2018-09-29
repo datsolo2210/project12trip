@@ -6,7 +6,11 @@ export function callApi(endpoint, method = 'GET', body) {
     return axios({
         method: method,
         url: Config.API_URL + endpoint,
-        data: body
+        data: body,
+        headers: {
+            // token: getCookie('token'),
+            sessionid: getCookie('session_id')
+        }
     }).catch(err => {
         console.log(err);
     });
@@ -19,7 +23,7 @@ export function callHotelApi(endpoint, method = 'GET', body) {
         data: body,
         headers: {
             token: getCookie('token'),
-            sessionid: getCookie('session_id')
+            // sessionid: getCookie('session_id')
         }
     }).catch(err => {
         console.log(err);

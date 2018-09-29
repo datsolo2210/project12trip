@@ -15,7 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     getCookie("session_id")
       ? <Component {...props} />
-      : <Redirect to={{ pathname: '/login', state: {from: props.location} }} />
+      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
   )} ></Route>
 )
 
@@ -59,17 +59,6 @@ class App extends Component {
     }
     return <Switch>{result}</Switch>
   }
-
-  // showContentMenus = () => {
-  //   return (
-  //     <Switch>
-  //       <Route exact path='/register' component={RegisterPage}></Route>
-  //       <Route exact path='/login' component={LoginPage}></Route>
-  //       <PrivateRoute exact path='/' component={ListReviewPage}></PrivateRoute>
-  //       <PrivateRoute exact path='/review-detail' component={ReviewDetailPage}></PrivateRoute>
-  //     </Switch>
-  //   )
-  // }
 }
 
 export default App;

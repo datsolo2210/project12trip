@@ -3,12 +3,18 @@ import React from 'react';
 import LoginPage from './pages/loginPage/loginPage';
 import RegisterPage from './pages/registerPage/registerPage';
 import ReviewDetailPage from './pages/reviewDetailPage/ReviewDetailPage';
+import Homepage from './pages/homepage';
 
 const routes =[
     {
         path : '/',
         exact : true,
         main : () => <ListReviewPage></ListReviewPage>
+    },
+    {
+        path : '/home',
+        exact : true,
+        main : () => <Homepage></Homepage>
     },
     {
         path: '/login',

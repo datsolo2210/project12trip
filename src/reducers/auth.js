@@ -3,16 +3,16 @@ const INIT_STATE = {
     account: {},
     redirectToReferrer: false
 };
-const login = (state = INIT_STATE, action) => {
+const auth = (state = INIT_STATE, action) => {
     switch(action.type){
         case Types.LOGIN: {
             console.log(action.payload);
-            return {user: action.payload, redirectToReferrer: true};          
+            return {...state, account: action.payload, redirectToReferrer: true};          
         }  
         case Types.REGISTER: {
-            return {user: action.payload, redirectToReferrer: true};
+            return {...state, account: action.payload, redirectToReferrer: true};
         }
         default: return state;
     }
 };
-export default login;
+export default auth;
