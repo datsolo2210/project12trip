@@ -9,3 +9,4 @@ export const GET_HOTEL = 'GET_HOTEL';
 export const CREATE_REVIEW = 'CREATE_REVIEW';
 export const GET_REVIEW_DETAIL = 'GET_REVIEW_DETAIL';
 export const GET_MY_REVIEWS = 'GET_MY_REVIEWS';
+export const GET_PENDING_REVIEWS = 'GET_PENDING_REVIEWS';

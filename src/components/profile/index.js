@@ -4,13 +4,13 @@ class Profile extends Component {
     render() {
         const {account} = this.props;
         return (
-            <div>
+            <div className="profile">
                 <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                         <img className="avatar" src="https://www.blakors.no/wp-content/uploads/2018/02/team-mann.jpg"/>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                        <h4>{account.name}</h4>
+                    <div className="col-lg-7 col-md-7 col-sm-7 col-7">
+                        <h5>{account.name}</h5>
                         <p>Rating</p>
                     </div>
                 </div>

@@ -12,6 +12,9 @@ const review = (state=INIT_STATE, action) => {
         case Types.GET_MY_REVIEWS: {
             return {...state, myReviews: action.payload};
         }
+        case Types.GET_PENDING_REVIEWS: {
+            return {...state, pendingReviews: action.payload};
+        }
         default: return state;
     }
 }

@@ -270,7 +270,7 @@
     }
 }
 
-.alert {
+/* .alert {
     color: #000000;
 }
 
@@ -388,7 +388,7 @@
 
 .alert .close span {
     color: #727272;
-}
+} */
 
 .form-body.without-side .img-holder .info-holder img {
     display: inline-block;
