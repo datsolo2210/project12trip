@@ -33,3 +33,47 @@ export const getPendingReviews = () => (dispatch) => {
         })
     })
 }
+
+export const likeReview = (id) => (dispatch) => {
+    return callApi(`review/${id}/like`, 'PUT', null)
+    .then(res => {
+        console.log(res.data);
+        dispatch({type: Types.LIKE_REVIEW, payload: res.data.review});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+export const dislikeReview = (id) => (dispatch) => {
+    return callApi(`review/${id}/dislike`, 'PUT', null)
+    .then(res => {
+        console.log(res.data);
+        dispatch({type: Types.DISLIKE_REVIEW, payload: res.data.review});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+export const unlikeReview = (id) => (dispatch) => {
+    return callApi(`review/${id}/unlike`, 'PUT', null)
+    .then(res => {
+        console.log(res.data);
+        dispatch({type: Types.UNLIKE_REVIEW, payload: res.data.review});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+export const undislikeReview = (id) => (dispatch) => {
+    return callApi(`review/${id}/undislike`, 'PUT', null)
+    .then(res => {
+        console.log(res.data);
+        dispatch({type: Types.UNDISLIKE_REVIEW, payload: res.data.review});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}

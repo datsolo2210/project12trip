@@ -12,6 +12,9 @@ const auth = (state = INIT_STATE, action) => {
         case Types.REGISTER: {
             return {...state, account: action.payload, redirectToReferrer: true};
         }
+        case Types.GET_CURRENT_ACCOUNT: {
+            return {...state, account: action.payload}
+        }
         default: return state;
     }
 };

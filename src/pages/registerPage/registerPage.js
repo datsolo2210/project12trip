@@ -4,11 +4,13 @@ import '../../assets/css/registration/theme.css';
 import { actRegisterRequest } from '../../actions/AuthActions';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {getCookie} from '../../helper';
 
 class RegisterPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			redirectToReferrer: false,
 			newAccount: {
 				name: "",
 				email: "",
@@ -29,12 +31,14 @@ class RegisterPage extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		this.props.register(this.state.newAccount);
+		this.props.register(this.state.newAccount).then(data => {
+			this.setState({redirectToReferrer: true});
+		});
 	}
 
 	render() {
 
-		if (this.props.redirectToReferrer === true) {
+		if (this.state.redirectToReferrer === true) {
 			return <Redirect to='/' />
 		}
 

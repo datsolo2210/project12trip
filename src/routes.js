@@ -5,16 +5,16 @@ import RegisterPage from './pages/registerPage/registerPage';
 import ReviewDetailPage from './pages/reviewDetailPage/ReviewDetailPage';
 import Homepage from './pages/homepage';
 
-const routes =[
+const routes = [
     {
         path : '/',
         exact : true,
-        main : () => <ListReviewPage></ListReviewPage>
+        main : () => <Homepage></Homepage>
     },
     {
-        path : '/home',
+        path : '/search',
         exact : true,
-        main : () => <Homepage></Homepage>
+        main : () => <ListReviewPage></ListReviewPage>
     },
     {
         path: '/login',

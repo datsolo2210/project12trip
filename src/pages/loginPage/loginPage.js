@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { actLoginRequest } from '../../actions/AuthActions';
 import { connect } from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
+import { getCookie } from '../../helper';
 
 
 class LoginPage extends Component {
@@ -12,6 +13,7 @@ class LoginPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			redirectToReferrer: false,
 			loginData: {
 				username: "",
 				password: ""	
@@ -31,15 +33,16 @@ class LoginPage extends Component {
 	login = (e) => {
 		e.preventDefault();
 		let login = this.state.loginData;
-		this.props.userLogin(login);
+		this.props.userLogin(login).then((data) => {
+			this.setState({redirectToReferrer: true});
+		});
+		
 	}
 
-	render() {	
-		const { from } = this.props.location.state || { from: { pathname: "/" } };
-		// const { redirectToReferrer } = this.state;
-
-		if (this.props.redirectToReferrer === true) {
-			return <Redirect to={from} />
+	render() {
+		console.log(this.state);
+		if (this.state.redirectToReferrer) {
+			return <Redirect to='/' />
 		}
 
 		return (
@@ -78,17 +81,15 @@ class LoginPage extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
+function mapStateToProps (state) {
 	return {
 		redirectToReferrer: state.auth.redirectToReferrer, 
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps (dispatch) {
 	return {
-		userLogin: (login) => {
-			dispatch(actLoginRequest(login));
-		}
+		userLogin: (login) => dispatch(actLoginRequest(login))
 	}
 }
 

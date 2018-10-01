@@ -7,7 +7,9 @@ import './assets/css/searchArea.css';
 import './assets/css/style.css';
 import './assets/css/reviewDetail.css';
 import routes from './routes';
-import { Switch, Redirect, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Redirect, Route, BrowserRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getCurrentAccount} from './actions/AuthActions';
 
 import { getCookie } from './helper';
 
@@ -15,21 +17,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     getCookie("session_id")
       ? <Component {...props} />
-      : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+      : <Redirect to={{ pathname: '/login', state: { from: props.location} }} />
   )} ></Route>
 )
 
 class App extends Component {
-
+  componentDidMount() {
+    this.props.getCurrentAccount();
+  }
+  
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="body">
           <Header></Header>
           {this.showContentMenus(routes)}
 
         </div>
-      </Router>
+      </BrowserRouter>
 
     );
   }
@@ -61,4 +66,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return {
+    getCurrentAccount: () => dispatch(getCurrentAccount())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

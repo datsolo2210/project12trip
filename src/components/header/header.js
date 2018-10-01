@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { removeCookie, getCookie } from '../../helper';
 
 class Header extends Component {
+
+	logout() {
+		removeCookie('session_id');
+		removeCookie('token');
+		window.location.href = '/login';
+	}
+
 	render() {
 		return (
 			<div className="header">
@@ -13,10 +22,31 @@ class Header extends Component {
 							</Link>
 						</div>
 					</div>
+					<div className="header-right">
+						{
+							getCookie('session_id') ?
+								(
+									<div>
+										<Link to='/search'>
+											<i className="fas fa-search fa-2x"></i>
+										</Link>
+										<span>{this.props.account.name} <a id="log-out" onClick={() => this.logout()}>(Log out)</a></span>
+									</div>
+								)
+								: null
+						}
+					</div>
+
 				</div>
 			</div>
 		);
 	}
 }
 
-export default Header;
+function mapStateToProps(state) {
+	return {
+		account: state.auth.account
+	}
+}
+
+export default connect(mapStateToProps, null)(Header);

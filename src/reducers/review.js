@@ -15,6 +15,18 @@ const review = (state=INIT_STATE, action) => {
         case Types.GET_PENDING_REVIEWS: {
             return {...state, pendingReviews: action.payload};
         }
+        case Types.LIKE_REVIEW: {
+            return {...state}
+        }
+        case Types.DISLIKE_REVIEW: {
+            return {...state}
+        }
+        case Types.UNLIKE_REVIEW: {
+            return {...state}
+        }
+        case Types.UNDISLIKE_REVIEW: {
+            return {...state}
+        }
         default: return state;
     }
 }
