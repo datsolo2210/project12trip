@@ -14,6 +14,12 @@ class ReviewItem extends Component {
     }
 
     like(id) {
+        // undislike before like
+        if(this.state.isDisliked) {
+            this.props.undislikeReview(id);
+            this.setState({isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1});
+        }
+
         if(this.state.isLiked) {
             this.props.unlikeReview(id);
             this.setState({isLiked: false, likeNumber: this.state.likeNumber - 1});
@@ -24,6 +30,12 @@ class ReviewItem extends Component {
     }
 
     dislike(id) {
+        // unlike before dislike
+        if(this.state.isLiked) {
+            this.props.unlikeReview(id);
+            this.setState({isLiked: false, likeNumber: this.state.likeNumber - 1});
+        }
+
         if(this.state.isDisliked) {
             this.props.undislikeReview(id);
             this.setState({isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1});
@@ -49,8 +61,9 @@ class ReviewItem extends Component {
                         <i>Review for hotel {review.property} - Created at {new  Date(review.created).toLocaleString()}</i> 
                     </small>
                     {
-                        review.is_approved ? (<i className="fas fa-check-circle"></i>) : null
+                        review.is_approved ? (<span>    <i className="fas fa-check-circle"></i></span>) : null
                     }
+                    <h6>Writen by {review.account.name}</h6>
                     <h4>{review.title}</h4>
                     <div>
                         <div className="row">
