@@ -6,44 +6,44 @@ class ReviewItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLiked: props.review.is_liked,
-            isDisliked: props.review.is_disliked,
-            likeNumber: props.review.like_list.length,
-            dislikeNumber: props.review.dislike_list.length
+            // isLiked: props.review.is_liked,
+            // isDisliked: props.review.is_disliked,
+            likeNumber: props.review.likeNumber,
+            dislikeNumber: props.review.dislikeNumber
         }
     }
 
-    like(id) {
-        // undislike before like
-        if (this.state.isDisliked) {
-            this.props.undislikeReview(id);
-            this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
-        }
+    // like(id) {
+    //     // undislike before like
+    //     if (this.state.isDisliked) {
+    //         this.props.undislikeReview(id);
+    //         this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
+    //     }
 
-        if (this.state.isLiked) {
-            this.props.unlikeReview(id);
-            this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
-        } else {
-            this.props.likeReview(id);
-            this.setState({ isLiked: true, likeNumber: this.state.likeNumber + 1 });
-        }
-    }
+    //     if (this.state.isLiked) {
+    //         this.props.unlikeReview(id);
+    //         this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
+    //     } else {
+    //         this.props.likeReview(id);
+    //         this.setState({ isLiked: true, likeNumber: this.state.likeNumber + 1 });
+    //     }
+    // }
 
-    dislike(id) {
-        // unlike before dislike
-        if (this.state.isLiked) {
-            this.props.unlikeReview(id);
-            this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
-        }
+    // dislike(id) {
+    //     // unlike before dislike
+    //     if (this.state.isLiked) {
+    //         this.props.unlikeReview(id);
+    //         this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
+    //     }
 
-        if (this.state.isDisliked) {
-            this.props.undislikeReview(id);
-            this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
-        } else {
-            this.props.dislikeReview(id);
-            this.setState({ isDisliked: true, dislikeNumber: this.state.dislikeNumber + 1 });
-        }
-    }
+    //     if (this.state.isDisliked) {
+    //         this.props.undislikeReview(id);
+    //         this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
+    //     } else {
+    //         this.props.dislikeReview(id);
+    //         this.setState({ isDisliked: true, dislikeNumber: this.state.dislikeNumber + 1 });
+    //     }
+    // }
 
     render() {
         const { review } = this.props;
@@ -87,12 +87,12 @@ class ReviewItem extends Component {
                             {review.text_dislike}
                         </div>
                         <div>
-                            <button className={`btn btn-vote ${isLiked ? 'active' : ''}`} onClick={() => this.like(review._id)}>
+                            {/* <button className={`btn btn-vote ${isLiked ? 'active' : ''}`} onClick={() => this.like(review._id)}>
                                 <i className="fas fa-thumbs-up"></i>
                             </button>
                             <button className={`btn btn-vote ${isDisliked ? 'active' : ''}`} onClick={() => this.dislike(review._id)}>
                                 <i className="fas fa-thumbs-down"></i>
-                            </button>
+                            </button> */}
                             <br />
                             <small>{likeNumber} like and {dislikeNumber} dislike for this review</small>
                         </div>

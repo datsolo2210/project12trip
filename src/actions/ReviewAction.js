@@ -11,15 +11,15 @@ export const actCreateReview = (review) => (dispatch) => {
 };
 
 export const getMyReviews = () => (dispatch) => {
-    // return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         return callApi('reviews/my-review', 'GET', null).then(res => {
             dispatch({ type: Types.GET_MY_REVIEWS, payload: res.data.reviews });
-            // resolve(res.data.reviews);
+            resolve(res.data.reviews);
         }).catch(err => {
             console.log(err);
-            // reject(err);
+            reject(err);
         })
-    // })
+    })
 }
 
 export const getPendingReviews = () => (dispatch) => {
