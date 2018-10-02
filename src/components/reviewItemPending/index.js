@@ -55,6 +55,7 @@ class ReviewItemPending extends Component {
             return avg_rate += item.level;
         })
 
+
         return (
             <div className='review-item'>
                 <div className="row">
@@ -122,7 +123,12 @@ class ReviewItemPending extends Component {
                 <div>
                     <hr />
                 </div>
-                <ReplyReview></ReplyReview>
+                <React.Fragment>
+                  {   review.votes.map((vote) => {
+                       return  (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
+                    })
+                  }
+                </React.Fragment>
                 <div className='row'>
                     <div className='col-12'>
                         <input

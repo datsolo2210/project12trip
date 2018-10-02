@@ -48,7 +48,7 @@ class ReviewItem extends Component {
 
     render() {
         const { review } = this.props;
-        const {likeNumber, dislikeNumber } = this.state;
+        const { likeNumber, dislikeNumber } = this.state;
 
         var avg_rate = 0;
         review.items.map(item => {
@@ -94,7 +94,7 @@ class ReviewItem extends Component {
                             <button className={`btn btn-vote ${isDisliked ? 'active' : ''}`} >
                                 {dislikeNumber}<i className="fas fa-thumbs-down"></i>
                             </button> */}
-                            <hr/>
+                            <hr />
                             <span>{likeNumber} <i className="fas fa-thumbs-up icon-like"></i> and {dislikeNumber} <i className="fas fa-thumbs-down icon-like"></i> for this review</span>
                         </div>
                     </div>
@@ -122,7 +122,12 @@ class ReviewItem extends Component {
                 <div>
                     <hr />
                 </div>
-                <ReplyReview></ReplyReview>
+                <React.Fragment>
+                    {review.votes.map((vote) => {
+                        return (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
+                    })
+                    }
+                </React.Fragment>
                 {/* <div className='row'>
                     <div className='col-12'>
                         <input

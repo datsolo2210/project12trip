@@ -156,10 +156,11 @@ body {
 }
 
 .comment-reply{
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #d4edda;
     margin-bottom: 10px;
     margin-top: 10px;
+    padding: 10px;
 }
 
 .btn-like{
@@ -181,3 +182,4 @@ body {
 .icon-like{
     color: #9b59b6;
 }
+

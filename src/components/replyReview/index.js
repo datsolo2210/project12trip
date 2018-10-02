@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 class ReplyReview extends Component {
     render() {
+        const vote = this.props.vote;
         return (
             <div className='comment-reply'>
                 <div className='row'>
                     <div className='col-4'>
-                        <span style={{fontWeight: 'bold'}}>Nguyen Van Dat</span>
+                        <span style={{fontWeight: 'bold'}}>{vote.account}</span>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-4'>
                     <i className="fas fa-thumbs-up icon-like"></i>
-                    <small>02/10/2018</small>
+                    <small><i>{new Date(vote.created).toLocaleString()}</i></small>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-12'>
-                        Lưu ý trước khi cài đặt phần mềm: Windows 7 phải được cập nhật bản Services Pack 1
+                        {vote.comment}
                     </div>
                 </div>
             </div>
