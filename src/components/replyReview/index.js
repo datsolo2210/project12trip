@@ -10,7 +10,7 @@ class ReplyReview extends Component {
                 </div>
                 <div className='row'>
                     <div className='col-4'>
-                    <i className="fas fa-thumbs-up"></i>
+                    <i className="fas fa-thumbs-up icon-like"></i>
                     <small>02/10/2018</small>
                     </div>
                 </div>

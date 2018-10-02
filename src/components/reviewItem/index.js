@@ -95,7 +95,7 @@ class ReviewItem extends Component {
                                 {dislikeNumber}<i className="fas fa-thumbs-down"></i>
                             </button> */}
                             <hr/>
-                            <span>{likeNumber} <i className="fas fa-thumbs-up"></i> and {dislikeNumber} <i className="fas fa-thumbs-down"></i> for this review</span>
+                            <span>{likeNumber} <i className="fas fa-thumbs-up icon-like"></i> and {dislikeNumber} <i className="fas fa-thumbs-down icon-like"></i> for this review</span>
                         </div>
                     </div>
                     <div className="col-4">

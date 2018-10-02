@@ -89,13 +89,13 @@ class ReviewItemPending extends Component {
                         </div>
                         <div>
                             <hr />
-                            <button className={`btn btn-vote ${isLiked ? 'active' : ''}`} onClick={() => this.like(review._id)}>
+                            <button className={`btn-like ${isLiked ? 'btn-like-active' : ''}`} onClick={() => this.like(review._id)}>
                                 <i className="fas fa-thumbs-up"></i>
                             </button>
-                            <button className={`btn btn-vote ${isDisliked ? 'active' : ''}`} onClick={() => this.dislike(review._id)}>
+                            <button className={`btn-like ${isDisliked ? 'btn-like-active' : ''}`} onClick={() => this.dislike(review._id)}>
                                 <i className="fas fa-thumbs-down"></i>
                             </button>
-                            <span>{likeNumber} <i className="fas fa-thumbs-up"></i> and {dislikeNumber} <i className="fas fa-thumbs-down"></i> for this review</span>
+                            <span>{likeNumber} <i className="fas fa-thumbs-up icon-like" ></i> and {dislikeNumber} <i className="fas fa-thumbs-down icon-like"></i> for this review</span>
                         </div>
                     </div>
                     <div className="col-4">
