@@ -150,3 +150,13 @@ body {
     background-color:  #00a680;
 }
 
+.input-reply-comment{
+    border-radius: 15px;
+    border: 1px solid #00a680;
+}
+
+.comment-reply{
+    border-radius: 15px;
+    border: 1px solid #00a680;
+}
+

@@ -55,7 +55,7 @@ class ReviewItem extends Component {
         })
 
         return (
-            <div className='review-item'>
+            <div className="review-item">
                 <div className="row">
                     <div className="col-8">
                         <small>
