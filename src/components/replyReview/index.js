@@ -5,7 +5,7 @@ class ReplyReview extends Component {
             <div className='comment-reply'>
                 <div className='row'>
                     <div className='col-4'>
-                        <span>Nguyen Van Dat</span>
+                        <span style={{fontWeight: 'bold'}}>Nguyen Van Dat</span>
                     </div>
                 </div>
                 <div className='row'>
@@ -15,7 +15,7 @@ class ReplyReview extends Component {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-8'>
+                    <div className='col-12'>
                         Lưu ý trước khi cài đặt phần mềm: Windows 7 phải được cập nhật bản Services Pack 1
                     </div>
                 </div>

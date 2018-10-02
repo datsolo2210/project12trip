@@ -10,6 +10,7 @@ export const actLoginRequest = (login) => (dispatch) => {
             setCookie('session_id', data.sessionid, 1);
             dispatch({ type: Types.LOGIN, payload: data.account });
             resolve(data.account);
+            console.log(data);
         }).catch(err => {
             console.log(err);
             reject(err);

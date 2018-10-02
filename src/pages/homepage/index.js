@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import Profile from '../../components/profile';
 import { getMyReviews, getPendingReviews } from '../../actions/ReviewAction';
 import ReviewItem from '../../components/reviewItem';
+import ReviewItemPending from '../../components/reviewItemPending';
 
 class Homepage extends Component {
     constructor(props) {
@@ -11,29 +12,31 @@ class Homepage extends Component {
         this.state = {
             isTabOneActive: true,
             isTabTwoActive: false,
-            reviews: []
         }
     }
     componentDidMount() {
-        this.props.getMyReviews().then(data => {
-            this.setState({reviews: data});
-        });
+        this.props.getMyReviews();
         this.props.getPendingReviews();
+
     }
+
 
     changeState(e) {
         if (e.target.name == 'your-review') {
             this.setState({
                 isTabOneActive: true,
                 isTabTwoActive: false,
-                reviews: this.props.myReviews
-            })
+            });
+            document.getElementById('my-review-list').classList.remove('d-none');
+            document.getElementById('pending-review-list').className='review-list d-none';
+           
         } else if (e.target.name == 'pending-review') {
             this.setState({
                 isTabOneActive: false,
                 isTabTwoActive: true,
-                reviews: this.props.pendingReviews
-            })
+            });
+            document.getElementById('pending-review-list').classList.remove('d-none');
+            document.getElementById('my-review-list').className='review-list d-none';
         }
     }
 
@@ -61,14 +64,21 @@ class Homepage extends Component {
                                     </a>
                                 </li>
                             </ul>
-                            <div className="review-list">
-                                {
-                                    this.state.reviews.map((review, index) => {
-                                        return (
-                                            <ReviewItem review={review} key={index}></ReviewItem>
-                                        )
-                                    })
-                                }
+                            <div className="review-list" id="my-review-list">
+                                {this.props.myReviews.map((review) => {
+                                    return <ReviewItem
+                                        review={review}
+                                        key={review.id}
+                                    ></ReviewItem>
+                                })}
+                            </div>
+                            <div className="review-list d-none" id="pending-review-list">
+                                {this.props.pendingReviews.map((review) => {
+                                    return <ReviewItemPending
+                                        review={review}
+                                        key={review.id}
+                                    ></ReviewItemPending>
+                                })}
                             </div>
                         </div>
                     </div>

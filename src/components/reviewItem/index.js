@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { likeReview, dislikeReview, unlikeReview, undislikeReview } from '../../actions/ReviewAction';
+import ReplyReview from '../replyReview';
 
 class ReviewItem extends Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class ReviewItem extends Component {
 
     render() {
         const { review } = this.props;
-        const { isLiked, isDisliked, likeNumber, dislikeNumber } = this.state;
+        const {likeNumber, dislikeNumber } = this.state;
 
         var avg_rate = 0;
         review.items.map(item => {
@@ -64,7 +65,7 @@ class ReviewItem extends Component {
                         {
                             review.is_approved ? (<span>    <i className="fas fa-check-circle"></i></span>) : null
                         }
-                        <h6>Writen by {review.account.name}</h6>
+                        {/* <h6>Writen by {review.account.name}</h6> */}
                         <h4>{review.title}</h4>
                         <div>
                             <div className="row">
@@ -87,14 +88,14 @@ class ReviewItem extends Component {
                             {review.text_dislike}
                         </div>
                         <div>
-                            {/* <button className={`btn btn-vote ${isLiked ? 'active' : ''}`} onClick={() => this.like(review._id)}>
-                                <i className="fas fa-thumbs-up"></i>
+                            {/* <button className={`btn btn-vote ${isLiked ? 'active' : ''}`} >
+                                {likeNumber}<i className="fas fa-thumbs-up"></i>
                             </button>
-                            <button className={`btn btn-vote ${isDisliked ? 'active' : ''}`} onClick={() => this.dislike(review._id)}>
-                                <i className="fas fa-thumbs-down"></i>
+                            <button className={`btn btn-vote ${isDisliked ? 'active' : ''}`} >
+                                {dislikeNumber}<i className="fas fa-thumbs-down"></i>
                             </button> */}
-                            <br />
-                            <small>{likeNumber} like and {dislikeNumber} dislike for this review</small>
+                            <hr/>
+                            <span>{likeNumber} <i className="fas fa-thumbs-up"></i> and {dislikeNumber} <i className="fas fa-thumbs-down"></i> for this review</span>
                         </div>
                     </div>
                     <div className="col-4">
@@ -118,8 +119,12 @@ class ReviewItem extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='row'>
-                    <div className='col-8'>
+                <div>
+                    <hr />
+                </div>
+                <ReplyReview></ReplyReview>
+                {/* <div className='row'>
+                    <div className='col-12'>
                         <input
                             className="input-reply-comment form-control"
                             type="text"
@@ -127,19 +132,19 @@ class ReviewItem extends Component {
                             placeholder="Write a reply review..."
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        likeReview: (id) => dispatch(likeReview(id)),
-        dislikeReview: (id) => dispatch(dislikeReview(id)),
-        unlikeReview: (id) => dispatch(unlikeReview(id)),
-        undislikeReview: (id) => dispatch(undislikeReview(id))
-    }
-}
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         likeReview: (id) => dispatch(likeReview(id)),
+//         dislikeReview: (id) => dispatch(dislikeReview(id)),
+//         unlikeReview: (id) => dispatch(unlikeReview(id)),
+//         undislikeReview: (id) => dispatch(undislikeReview(id))
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(ReviewItem);
+export default ReviewItem;
