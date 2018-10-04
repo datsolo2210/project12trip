@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { likeReview, dislikeReview, unlikeReview, undislikeReview } from '../../actions/ReviewAction';
+import { voteAct } from '../../actions/ReviewAction';
 import ReplyReview from '../replyReview';
 
 class ReviewItemPending extends Component {
@@ -10,40 +10,70 @@ class ReviewItemPending extends Component {
             isLiked: props.review.is_liked,
             isDisliked: props.review.is_disliked,
             likeNumber: props.review.likeNumber,
-            dislikeNumber: props.review.dislikeNumber
+            dislikeNumber: props.review.dislikeNumber,
+            comment: ""
         }
     }
 
-    like(id) {
+    like() {
         // undislike before like
         if (this.state.isDisliked) {
-            this.props.undislikeReview(id);
             this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
         }
 
         if (this.state.isLiked) {
-            this.props.unlikeReview(id);
             this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
         } else {
-            this.props.likeReview(id);
             this.setState({ isLiked: true, likeNumber: this.state.likeNumber + 1 });
         }
+        document.getElementById("myModal").style.display = "block";
     }
 
-    dislike(id) {
+    dislike() {
         // unlike before dislike
         if (this.state.isLiked) {
-            this.props.unlikeReview(id);
             this.setState({ isLiked: false, likeNumber: this.state.likeNumber - 1 });
         }
 
         if (this.state.isDisliked) {
-            this.props.undislikeReview(id);
             this.setState({ isDisliked: false, dislikeNumber: this.state.dislikeNumber - 1 });
         } else {
-            this.props.dislikeReview(id);
             this.setState({ isDisliked: true, dislikeNumber: this.state.dislikeNumber + 1 });
         }
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    onChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        }, () => { console.log(this.state.comment) })
+    }
+
+    submitCmt = (id) => {
+        if (this.state.isLiked) {
+            let vote = {
+                id: id,
+                comment: {
+                    value: 1,
+                    comment: this.state.comment
+                }
+            };
+            this.props.submitComment(vote);
+            // document.getElementById("myModal").style.display = "none";
+        }
+        if (this.state.isDisliked) {
+            let vote = {
+                id: id,
+                comment: {
+                    value: -1,
+                    comment: this.state.comment
+                }
+            };
+            this.props.submitComment(vote);
+            // document.getElementById("myModal").style.display = "none";
+        }
+        
+        console.log("eeeeeeeeeeeee");
     }
 
     render() {
@@ -90,13 +120,36 @@ class ReviewItemPending extends Component {
                         </div>
                         <div>
                             <hr />
-                            <button className={`btn-like ${isLiked ? 'btn-like-active' : ''}`} onClick={() => this.like(review._id)}>
+                            <button className={`btn-like ${isLiked ? 'btn-like-active' : ''}`} onClick={() => this.like()} >
                                 <i className="fas fa-thumbs-up"></i>
                             </button>
-                            <button className={`btn-like ${isDisliked ? 'btn-like-active' : ''}`} onClick={() => this.dislike(review._id)}>
+                            <button className={`btn-like ${isDisliked ? 'btn-like-active' : ''}`} onClick={() => this.dislike()} >
                                 <i className="fas fa-thumbs-down"></i>
                             </button>
                             <span>{likeNumber} <i className="fas fa-thumbs-up icon-like" ></i> and {dislikeNumber} <i className="fas fa-thumbs-down icon-like"></i> for this review</span>
+                            <div id="myModal" className="modal-comment">
+                                <div className="modal-content">
+                                    <div className="modal-body">
+                                        <div className='row'>
+                                            <div className='col-12'>
+                                                <input
+                                                    className="form-control"
+                                                    type="text"
+                                                    name="comment"
+                                                    placeholder="Tell why you like or dislike this review..."
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="modal-footer">
+                                        <div className='row'>
+                                            <div className='col-1'>
+                                                <button type="button" class="btn btn-default" onClick={this.submitCmt(review._id)}>Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="col-4">
@@ -124,10 +177,10 @@ class ReviewItemPending extends Component {
                     <hr />
                 </div>
                 <React.Fragment>
-                  {   review.votes.map((vote) => {
-                       return  (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
+                    {review.votes.map((vote) => {
+                        return (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
                     })
-                  }
+                    }
                 </React.Fragment>
                 <div className='row'>
                     <div className='col-12'>
@@ -139,6 +192,7 @@ class ReviewItemPending extends Component {
                         />
                     </div>
                 </div>
+
             </div>
         );
     }
@@ -146,10 +200,9 @@ class ReviewItemPending extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        likeReview: (id) => dispatch(likeReview(id)),
-        dislikeReview: (id) => dispatch(dislikeReview(id)),
-        unlikeReview: (id) => dispatch(unlikeReview(id)),
-        undislikeReview: (id) => dispatch(undislikeReview(id))
+        submitComment: (vote) => {
+            dispatch(voteAct(vote));
+        }
     }
 }
 

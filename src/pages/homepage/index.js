@@ -67,8 +67,8 @@ class Homepage extends Component {
                             <div className="review-list" id="my-review-list">
                                 {this.props.myReviews.map((review) => {
                                     return <ReviewItem
+                                    key={review._id}
                                         review={review}
-                                        key={review.id}
                                     ></ReviewItem>
                                 })}
                             </div>
