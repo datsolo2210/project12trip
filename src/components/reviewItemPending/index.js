@@ -49,7 +49,7 @@ class ReviewItemPending extends Component {
         }, () => { console.log(this.state.comment) })
     }
 
-    submitCmt = (id) => {
+    submitCmt(id) {
         if (this.state.isLiked) {
             let vote = {
                 id: id,
@@ -59,7 +59,7 @@ class ReviewItemPending extends Component {
                 }
             };
             this.props.submitComment(vote);
-            // document.getElementById("myModal").style.display = "none";
+            document.getElementById("myModal").style.display = "none";
         }
         if (this.state.isDisliked) {
             let vote = {
@@ -70,7 +70,7 @@ class ReviewItemPending extends Component {
                 }
             };
             this.props.submitComment(vote);
-            // document.getElementById("myModal").style.display = "none";
+            document.getElementById("myModal").style.display = "none";
         }
         
         console.log("eeeeeeeeeeeee");
@@ -144,7 +144,7 @@ class ReviewItemPending extends Component {
                                     <div className="modal-footer">
                                         <div className='row'>
                                             <div className='col-1'>
-                                                <button type="button" class="btn btn-default" onClick={this.submitCmt(review._id)}>Submit</button>
+                                                <button type="button" class="btn btn-default" onClick={() => this.submitCmt(review._id)}>Submit</button>
                                             </div>
                                         </div>
                                     </div>

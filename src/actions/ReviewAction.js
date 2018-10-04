@@ -79,7 +79,7 @@ export const getPendingReviews = () => (dispatch) => {
 // }
 
 export const voteAct = (vote) => (dispatch) => {
-    return callApi(`review/${vote.id}`/vote, 'PUT', vote.comment).then(res => {
+    return callApi(`review/${vote.id}/vote`, 'PUT', vote.comment).then(res => {
         console.log(res.data);
         dispatch({type: Types.SUBMIT_REVIEW, payload: res.data});
     })
