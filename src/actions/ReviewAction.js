@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi, callReviewAPI, callApi } from '../utils/apiCaller';
+import { callApi } from '../utils/apiCaller';
 
 export const actCreateReview = (review) => (dispatch) => {
     return callApi('review', 'POST', review).then(res => {
@@ -85,5 +85,17 @@ export const voteAct = (vote) => (dispatch) => {
     })
     .catch(err => {
         console.log(err);
+    })
+}
+
+export const getMyVoted = () => (dispatch) =>{
+    return new Promise((resolve, reject) => {
+        return callApi('reviews/my-voted', 'GET', null).then(res => {
+            dispatch({ type: Types.GET_MY_VOTED, payload: res.data.reviews });
+            resolve(res.data.reviews);
+        }).catch(err => {
+            console.log(err);
+            reject(err);
+        })
     })
 }

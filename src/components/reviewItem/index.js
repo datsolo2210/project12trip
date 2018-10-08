@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { likeReview, dislikeReview, unlikeReview, undislikeReview } from '../../actions/ReviewAction';
 import ReplyReview from '../replyReview';
 
 class ReviewItem extends Component {

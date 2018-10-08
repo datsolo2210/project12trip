@@ -35,7 +35,7 @@ class Profile extends Component {
                         <label>Birthday:</label>
                     </div>
                     <div className="col-9">
-                        {account.birthday ? account.birthday : 'Undefined'}
+                        {account.birthday ? new Date(account.birthday).toLocaleDateString('en-GB') : 'Undefined'}
                     </div>
                 </div>
                 <div className="row">

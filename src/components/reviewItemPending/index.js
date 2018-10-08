@@ -43,7 +43,7 @@ class ReviewItemPending extends Component {
         document.getElementById("myModal").style.display = "block";
     }
 
-    onChange = (e) => {
+    onChange(e){
         this.setState({
             [e.target.name]: e.target.value
         }, () => { console.log(this.state.comment) })
@@ -58,6 +58,7 @@ class ReviewItemPending extends Component {
                     comment: this.state.comment
                 }
             };
+            console.log(vote);
             this.props.submitComment(vote);
             document.getElementById("myModal").style.display = "none";
         }
@@ -72,8 +73,8 @@ class ReviewItemPending extends Component {
             this.props.submitComment(vote);
             document.getElementById("myModal").style.display = "none";
         }
+        this.props.reload;
         
-        console.log("eeeeeeeeeeeee");
     }
 
     render() {
@@ -137,6 +138,7 @@ class ReviewItemPending extends Component {
                                                     type="text"
                                                     name="comment"
                                                     placeholder="Tell why you like or dislike this review..."
+                                                    onChange={(e) => this.onChange(e)}
                                                 />
                                             </div>
                                         </div>
@@ -144,7 +146,7 @@ class ReviewItemPending extends Component {
                                     <div className="modal-footer">
                                         <div className='row'>
                                             <div className='col-1'>
-                                                <button type="button" class="btn btn-default" onClick={() => this.submitCmt(review._id)}>Submit</button>
+                                                <button type="button" className="btn btn-default" onClick={() => this.submitCmt(review._id)}>Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -182,7 +184,7 @@ class ReviewItemPending extends Component {
                     })
                     }
                 </React.Fragment>
-                <div className='row'>
+                {/* <div className='row'>
                     <div className='col-12'>
                         <input
                             className="input-reply-comment form-control"
@@ -191,7 +193,7 @@ class ReviewItemPending extends Component {
                             placeholder="Write a reply review..."
                         />
                     </div>
-                </div>
+                </div> */}
 
             </div>
         );

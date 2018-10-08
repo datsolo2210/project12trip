@@ -2,7 +2,8 @@ import * as Types from '../constants/constant';
 const INIT_STATE = {
     newReview: {},
     myReviews: [],
-    pendingReviews: []
+    pendingReviews: [],
+    myVoted: []
 };
 const review = (state=INIT_STATE, action) => {
     switch(action.type) {
@@ -29,6 +30,9 @@ const review = (state=INIT_STATE, action) => {
         // }
         case Types.SUBMIT_REVIEW: {
             return {...state}
+        }
+        case Types.GET_MY_VOTED: {
+            return {...state, myVoted: action.payload};
         }
         default: return state;
     }
