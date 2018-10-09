@@ -15,5 +15,5 @@ export const LIKE_REVIEW = 'LIKE_REVIEW';
 export const DISLIKE_REVIEW = 'DISLIKE_REVIEW';
 export const UNDISLIKE_REVIEW = 'UNDISLIKE_REVIEW';
 export const UNLIKE_REVIEW = 'UNLIKE_REVIEW';
-export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
+export const SUBMIT_VOTE = 'SUBMIT_VOTE';
 export const GET_MY_VOTED = 'GET_MY_VOTED';

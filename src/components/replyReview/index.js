@@ -6,7 +6,7 @@ class ReplyReview extends Component {
             <div className='comment-reply'>
                 <div className='row'>
                     <div className='col-4'>
-                        <span style={{fontWeight: 'bold'}}>{vote.account}</span>
+                        <span style={{fontWeight: 'bold'}}>{vote.account.name}</span>
                     </div>
                 </div>
                 <div className='row'>

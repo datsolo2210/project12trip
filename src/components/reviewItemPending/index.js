@@ -43,7 +43,7 @@ class ReviewItemPending extends Component {
         document.getElementById("myModal").style.display = "block";
     }
 
-    onChange(e){
+    onChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         }, () => { console.log(this.state.comment) })
@@ -59,7 +59,7 @@ class ReviewItemPending extends Component {
                 }
             };
             console.log(vote);
-            this.props.submitComment(vote);
+            this.props.submitComment(vote)
             document.getElementById("myModal").style.display = "none";
         }
         if (this.state.isDisliked) {
@@ -70,11 +70,10 @@ class ReviewItemPending extends Component {
                     comment: this.state.comment
                 }
             };
-            this.props.submitComment(vote);
+            this.props.submitComment(vote)
             document.getElementById("myModal").style.display = "none";
         }
-        this.props.reload;
-        
+
     }
 
     render() {
