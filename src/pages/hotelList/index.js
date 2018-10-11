@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import QuickReview from '../../components/quickReview/quickReview';
-import ListQuickReview from '../../components/listQuickReview/listQuickReview';
 import { connect } from 'react-redux';
 import { fetchHotels, fetchAutocomplete } from '../../actions/HotelActions';
 import { Link } from 'react-router-dom';
+import HotelItem from '../../components/hotelItem';
 
-class ListReviewPage extends Component {
+class HotelList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -103,43 +102,12 @@ class ListReviewPage extends Component {
                                             )
                                         }
                                     </div>
-                                    {/* <div className="col-3">
-                                        <label>Check in</label>
-                                        <input type="date" name="checkin" className="form-control" placeholder="Check in" onChange={(event) => this.onChangeQuery(event)}/>
-                                    </div>
-                                    <div className="col-3">
-                                        <label>Check out</label>
-                                        <input type="date" name="checkout" className="form-control" placeholder="Check out" onChange={(event) => this.onChangeQuery(event)}/>
-                                    </div> */}
-
 
                                     <div className="col-4" style={{ marginTop: 5 }}>
                                         <br />
                                         <button className='btn btn-search' onClick={() => this.onSubmit()}>Search Vacation Rental </button>
                                     </div>
-
-
                                 </div>
-                                {/* <div className="row form-group">
-                                    <div className="col-6">
-                                        <label>Numbers of room</label>
-                                        <select className="custom-select" name="num_rooms" onChange={(event) => this.onChangeQuery(event)}>
-                                            <option>Select number of rooms</option>
-                                            {
-                                                bedroomNumbers.map((item, index) => {
-                                                    return (
-                                                        <option key={index} value={item}>{item}</option>
-                                                    );
-                                                })
-                                            }
-                                        </select>
-                                    </div>
-                                    <div className="col-6">
-                                        <label>Option (Chưa cần dùng)</label>
-                                        <input type="text" className="form-control" placeholder="Property ID (optional)" />
-                                    </div>
-                                </div> */}
-
                             </div>
                         </div>
                     </div>
@@ -150,9 +118,10 @@ class ListReviewPage extends Component {
                                     <img src="http://www.autopricemanager.com/img/widget-loader-lg-en.gif" id="loading-image" alt="Loading..." />
                                 </div>
                             ) : (
-                                    <ListQuickReview>
+                                    <div>
+                                        <h2>Have you been? Travelers want to see more reviews of these places</h2>
                                         {this.showHotels(hotels)}
-                                    </ListQuickReview>
+                                    </div>
                                 )
                         }
                     </div>
@@ -168,7 +137,7 @@ class ListReviewPage extends Component {
         if (hotels.length > 0) {
             result = hotels.map((hotel, index) => {
                 return (
-                    <QuickReview key={hotel.hotel_id} hotel={hotel}></QuickReview>
+                    <HotelItem key={hotel.hotel_id} hotel={hotel}></HotelItem>
                 )
             });
         }
@@ -192,4 +161,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListReviewPage);
+export default connect(mapStateToProps, mapDispatchToProps)(HotelList);

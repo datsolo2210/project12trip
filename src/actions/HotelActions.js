@@ -3,9 +3,9 @@ import { callHotelApi } from '../utils/apiCaller';
 
 
 var date = new Date();
-var checkin = `${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate()}`;
+var checkin = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
 var date2 = new Date(date.getTime() + 86400000);
-var checkout = `${date2.getFullYear()}-0${date2.getMonth() + 1}-${date2.getDate()}`;
+var checkout = `${date2.getFullYear()}-${('0' + (date2.getMonth() + 1)).slice(-2)}-${('0' + date2.getDate()).slice(-2)}`;
 
 
 export const fetchHotels = (query) => (dispatch) => {

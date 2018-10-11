@@ -68,9 +68,7 @@ class ReviewDetailPage extends Component {
             this.setState({
                 hotel: nextProps.hotel.data
             })
-
         }
-
     }
 
     onClick = (e) => {
@@ -669,7 +667,7 @@ const mapStateToProps = state => {
 }
 
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         getHotel: (id) => {
             dispatch(actGetHotelRequest(id));

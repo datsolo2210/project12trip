@@ -27,6 +27,7 @@ class ReviewItemPending extends Component {
             this.setState({ isLiked: true, likeNumber: this.state.likeNumber + 1 });
         }
         document.getElementById("myModal").style.display = "block";
+        
     }
 
     dislike() {
@@ -73,7 +74,6 @@ class ReviewItemPending extends Component {
             this.props.submitComment(vote)
             document.getElementById("myModal").style.display = "none";
         }
-
     }
 
     render() {

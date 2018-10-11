@@ -9,19 +9,21 @@ import ReviewItemPending from '../../components/reviewItemPending';
 class Homepage extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             isTabOneActive: true,
             isTabTwoActive: false,
             isTabThreeActive: false,
         }
     }
+
     componentDidMount() {
         this.props.getMyReviews();
         this.props.getPendingReviews();
         this.props.getMyVoted();
 
     }
-    shouldComponentUpdate(nextProps,nextStates){
+    shouldComponentUpdate(nextProps, nextStates) {
         return nextProps !== this.props
     }
 
@@ -53,7 +55,6 @@ class Homepage extends Component {
                 isTabTwoActive: false,
                 isTabThreeActive: true
             });
-            this.props.getMyVoted();
             document.getElementById('voted-list').classList.remove('d-none');
             document.getElementById('pending-review-list').className = 'review-list d-none';
             document.getElementById('my-review-list').className = 'review-list d-none';
@@ -62,8 +63,7 @@ class Homepage extends Component {
 
     render() {
         const { account } = this.props;
-        console.log("------------render-------------")
-        console.log(this.props.pendingReviews)
+
         return (
             <div className="home">
                 <div className="container">
@@ -104,55 +104,54 @@ class Homepage extends Component {
                                     return <ReviewItemPending
                                         review={review}
                                         key={review._id}
+                                        test={() => this.test()}
                                     ></ReviewItemPending>
                                 })}
                             </div>
                             <div className="review-list d-none" id="voted-list">
-                                    {this.props.myVoted.map((review) => {
-                                        return <ReviewItem
-                                            review={review}
-                                            key={review._id}
-                                        ></ReviewItem>
-                                    })}
-                                </div>
+                                {this.props.myVoted.map((review) => {
+                                    return <ReviewItem
+                                        review={review}
+                                        key={review._id}
+                                    ></ReviewItem>
+                                })}
                             </div>
                         </div>
                     </div>
                 </div>
-                );
-            }
-        
-    showPendingReview(listPendingReview) {
-                    let r = null;
-        if (listPendingReview.length > 0) {
-                    r = listPendingReview.map((review) => {
-                        return <ReviewItemPending
-                            review={review}
-                            key={review._id}
-                        ></ReviewItemPending>
-                    })
+            </div>
+        );
+    }
 
-                }
-                return r;
-            }
-        
+    showPendingReview(listPendingReview) {
+        let r = null;
+        if (listPendingReview.length > 0) {
+            r = listPendingReview.map((review) => {
+                return <ReviewItemPending
+                    review={review}
+                    key={review._id}
+                ></ReviewItemPending>
+            })
         }
-        
+        return r;
+    }
+}
+
 function mapStateToProps(state) {
     return {
-                    account: state.auth.account,
-                myReviews: state.review.myReviews,
-                pendingReviews: state.review.pendingReviews,
-                myVoted: state.review.myVoted
-            }
-        }
-        
+        account: state.auth.account,
+        myReviews: state.review.myReviews,
+        pendingReviews: state.review.pendingReviews,
+        myVoted: state.review.myVoted
+    }
+}
+
 function mapDispatchToProps(dispatch) {
     return {
-                    getMyReviews: () => dispatch(getMyReviews()),
-                getPendingReviews: () => dispatch(getPendingReviews()),
-                getMyVoted: () => dispatch(getMyVoted())
-            }
-        }
-        
+        getMyReviews: () => dispatch(getMyReviews()),
+        getPendingReviews: () => dispatch(getPendingReviews()),
+        getMyVoted: () => dispatch(getMyVoted())
+    }
+}
+
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Homepage));

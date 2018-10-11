@@ -17,10 +17,6 @@ var findIndex = (pendingReviews, id) => {
 
 const review = (state = INIT_STATE, action) => {
 
-    var index;
-    var review = action.payload;
-    // console.log(review);
-
     switch (action.type) {
         case Types.CREATE_REVIEW: {
             return { ...state, newReview: action.payload };
@@ -32,15 +28,12 @@ const review = (state = INIT_STATE, action) => {
             return { ...state, pendingReviews: action.payload };
         }
         case Types.SUBMIT_VOTE: {
-            index = findIndex(state.pendingReviews, review.review._id);
-            // console.log(index);  
-            var p = state.pendingReviews;
-            console.log(p.length+"day la p")
-            p.splice(index, 1);
-            console.log(p.length+"day la p sau khi splice");
-            // console.log({...state, pendingReviews: p});
-
-            return { ...state, pendingReviews: p};
+            var id = action.payload.review._id;
+            state.pendingReviews = state.pendingReviews.filter((item) => {
+                return (item._id.toString() !== id.toString());
+            });
+            
+            return {...state, myVoted: [...state.myVoted, action.payload.review]};
         }
         case Types.GET_MY_VOTED: {
             return { ...state, myVoted: action.payload };

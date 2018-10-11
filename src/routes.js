@@ -1,8 +1,8 @@
-import ListReviewPage from './pages/listReviewPage/listReviewPage';
+import HotelList from './pages/hotelList';
 import React from 'react';
-import LoginPage from './pages/loginPage/loginPage';
-import RegisterPage from './pages/registerPage/registerPage';
-import ReviewDetailPage from './pages/reviewDetailPage/ReviewDetailPage';
+import LoginPage from './pages/loginPage';
+import RegisterPage from './pages/registerPage';
+import ReviewDetailPage from './pages/reviewDetailPage';
 import Homepage from './pages/homepage';
 
 const routes = [
@@ -14,7 +14,7 @@ const routes = [
     {
         path : '/search',
         exact : true,
-        main : () => <ListReviewPage></ListReviewPage>
+        main : () => <HotelList></HotelList>
     },
     {
         path: '/login',

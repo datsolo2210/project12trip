@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Photo from './photo';
-import LocationAdress from './locationAddress';
-import FormSubmit from './formSubmit';
+import LocationAdress from './locationAddress'; 
+import StarRatings from 'react-star-ratings';
 
-class QuickReview extends Component {
+class HotelItem extends Component {
     render() {
         var {hotel} = this.props;
 
@@ -16,11 +16,21 @@ class QuickReview extends Component {
                     <LocationAdress address= {hotel.address} id={hotel.hotel_id} >
                         {hotel.hotel_name}
                     </LocationAdress>
-                    <FormSubmit id={hotel.hotel_id} />
+                    <div>
+                        <StarRatings
+                            rating={hotel.stars}
+                            starRatedColor="yellow"
+                            starHoverColor="yellow"
+                            starDimension="25px"
+                            starSpacing="2px"
+                            numberOfStars={5}
+                            name='stars'
+                        />
+                    </div>
                 </div>
             </div>
         );
     }
 }
 
-export default QuickReview;
+export default HotelItem;
