@@ -11,7 +11,7 @@ class ReviewItemPending extends Component {
             isDisliked: props.review.is_disliked,
             likeNumber: props.review.likeNumber,
             dislikeNumber: props.review.dislikeNumber,
-            comment: ""
+            comment: "",
         }
     }
 
@@ -74,6 +74,10 @@ class ReviewItemPending extends Component {
             this.props.submitComment(vote)
             document.getElementById("myModal").style.display = "none";
         }
+    }
+
+    onChangePage(pageOfItems) {
+        this.setState({ pageOfItems: pageOfItems });
     }
 
     render() {
@@ -178,21 +182,12 @@ class ReviewItemPending extends Component {
                     <hr />
                 </div>
                 <React.Fragment>
-                    {review.votes.map((vote) => {
-                        return (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
-                    })
+                    {
+                        review.votes.map((vote) => {
+                            return (<ReplyReview vote={vote} key={vote._id}></ReplyReview>)
+                        })
                     }
                 </React.Fragment>
-                {/* <div className='row'>
-                    <div className='col-12'>
-                        <input
-                            className="input-reply-comment form-control"
-                            type="text"
-                            name="title_review"
-                            placeholder="Write a reply review..."
-                        />
-                    </div>
-                </div> */}
 
             </div>
         );

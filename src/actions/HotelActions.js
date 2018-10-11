@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi } from '../utils/apiCaller';
+import { callHotelApi, callApi } from '../utils/apiCaller';
 
 
 var date = new Date();
@@ -16,15 +16,12 @@ export const fetchHotels = (query) => (dispatch) => {
     if (!query.lang) query.lang = 'vi';
     if (!query.currency_code) query.currency_code = "VND";
 
-    console.log(checkin, checkout);
-
     var query_string = '';
     Object.keys(query).map(key => {
         return query_string = query_string + `&${key}=${query[key]}`;
     })
 
-    console.log(query_string);//&type=ci&id=-3714993&checkin=2018-09-19&checkout=2018-09-20&num_rooms=1&rows=10&lang=vi&currency_code=VND
-    //&type=ci&id=-3714993&checkin=2018-08-19&checkout=2018-08-20&num_rooms=1&rows=10&lang=vi&currency_code=VND
+    console.log(query_string);
 
     return callHotelApi(`hotel/list?${query_string}`, 'GET', null)
         .then(response => {
@@ -48,12 +45,12 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
 }
 
 export const actGetHotelRequest = (id) => (dispatch) => {
-    return callHotelApi(`hotel/detail?hotel_id=${id}&lang=vi`, 'GET', null).then(res => {
-        return dispatch({ type: Types.GET_HOTEL, payload: res.data })
+    return callApi(`hotel/${id}`, 'GET', null).then(res => {
+        return dispatch({ type: Types.GET_HOTEL_DETAIL, payload: res.data })
     })
-        .catch(err => {
-            console.log(err);
-        })
+    .catch(err => {
+        console.log(err);
+    })
 }
 
 
