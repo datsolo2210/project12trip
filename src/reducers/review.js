@@ -3,17 +3,10 @@ const INIT_STATE = {
     newReview: {},
     myReviews: [],
     pendingReviews: [],
+    current_page: 1,
+    pages: 0,
     myVoted: []
 };
-
-var findIndex = (pendingReviews, id) => {
-    var r = -1;
-    for (var i = 0; i < pendingReviews.length; i++) {
-        if (pendingReviews[i]._id.toString() == id.toString()) r = i;
-    }
-    return r;
-}
-
 
 const review = (state = INIT_STATE, action) => {
 
@@ -22,10 +15,20 @@ const review = (state = INIT_STATE, action) => {
             return { ...state, newReview: action.payload };
         }
         case Types.GET_MY_REVIEWS: {
-            return { ...state, myReviews: action.payload };
+            return { 
+                ...state, 
+                myReviews: action.payload.reviews, 
+                current_page: action.payload.current, 
+                pages: action.payload.pages 
+            };
         }
         case Types.GET_PENDING_REVIEWS: {
-            return { ...state, pendingReviews: action.payload };
+            return { 
+                ...state, 
+                pendingReviews: action.payload.reviews, 
+                current_page: action.payload.current, 
+                pages: action.payload.pages 
+            };
         }
         case Types.SUBMIT_VOTE: {
             var id = action.payload.review._id;
@@ -36,7 +39,12 @@ const review = (state = INIT_STATE, action) => {
             return {...state, myVoted: [...state.myVoted, action.payload.review]};
         }
         case Types.GET_MY_VOTED: {
-            return { ...state, myVoted: action.payload };
+            return { 
+                ...state, 
+                myVoted: action.payload.reviews, 
+                current_page: action.payload.current, 
+                pages: action.payload.pages 
+            };
         }
         default: return state;
     }

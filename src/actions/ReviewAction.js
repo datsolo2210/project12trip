@@ -10,10 +10,10 @@ export const actCreateReview = (review) => (dispatch) => {
         })
 };
 
-export const getMyReviews = () => (dispatch) => {
+export const getMyReviews = (page = 1) => (dispatch) => {
     return new Promise((resolve, reject) => {
-        return callApi('reviews/my-review', 'GET', null).then(res => {
-            dispatch({ type: Types.GET_MY_REVIEWS, payload: res.data.reviews });
+        return callApi(`reviews/my-review?page=${page}`, 'GET', null).then(res => {
+            dispatch({ type: Types.GET_MY_REVIEWS, payload: res.data });
             resolve(res.data.reviews);
         }).catch(err => {
             console.log(err);
@@ -22,10 +22,10 @@ export const getMyReviews = () => (dispatch) => {
     })
 }
 
-export const getPendingReviews = () => (dispatch) => {
+export const getPendingReviews = (page) => (dispatch) => {
     return new Promise((resolve, reject) => {
-        return callApi('reviews/pending', 'GET', null).then(res => {
-            dispatch({ type: Types.GET_PENDING_REVIEWS, payload: res.data.reviews });
+        return callApi(`reviews/pending?page=${page}`, 'GET', null).then(res => {
+            dispatch({ type: Types.GET_PENDING_REVIEWS, payload: res.data });
             resolve(res.data.reviews);
         }).catch(err => {
             console.log(err);
@@ -44,10 +44,10 @@ export const voteAct = (vote) => (dispatch) => {
     })
 }
 
-export const getMyVoted = () => (dispatch) =>{
+export const getMyVoted = (page) => (dispatch) =>{
     return new Promise((resolve, reject) => {
-        return callApi('reviews/my-voted', 'GET', null).then(res => {
-            dispatch({ type: Types.GET_MY_VOTED, payload: res.data.reviews });
+        return callApi(`reviews/my-voted?page=${page}`, 'GET', null).then(res => {
+            dispatch({ type: Types.GET_MY_VOTED, payload: res.data });
             resolve(res.data.reviews);
         }).catch(err => {
             console.log(err);
