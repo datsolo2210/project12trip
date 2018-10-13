@@ -1,5 +1,5 @@
 import * as Types from '../constants/constant';
-import { callHotelApi, callApi } from '../utils/apiCaller';
+import { callHotelApi, callApi, callApiHotelReview } from '../utils/apiCaller';
 
 
 var date = new Date();
@@ -45,12 +45,21 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
 }
 
 export const actGetHotelRequest = (id) => (dispatch) => {
-    return callApi(`hotel/${id}`, 'GET', null).then(res => {
+    return callHotelApi(`hotel/detail?hotel_id=${id}&lang=vi`, 'GET', null).then(res => {
         return dispatch({ type: Types.GET_HOTEL_DETAIL, payload: res.data })
     })
     .catch(err => {
         console.log(err);
     })
 }
+
+export const actGetDetailHotel = (id) => (dispatch) => {
+    return callApiHotelReview(`hotel/${id}`, 'GET', null).then(res => {
+        return dispatch({type: Types.GET_HOTEL_REVIEW_DETAIL, payload: res.data})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}   
 
 

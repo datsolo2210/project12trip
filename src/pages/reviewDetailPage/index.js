@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import ReviewDetail from '../../components/reviewDetail';
 import HeadReviewDetail from '../../components/reviewDetail/HeadReviewDetail';
-import { actGetHotelRequest } from '../../actions/HotelActions';
+import { actGetHotelRequest, actGetDetailHotel } from '../../actions/HotelActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getCookie } from '../../helper';
@@ -67,9 +67,11 @@ class ReviewDetailPage extends Component {
         if (nextProps && nextProps.hotel) {
             this.setState({
                 hotel: nextProps.hotel.data
-            })
+            });
         }
     }
+
+    
 
     onClick = (e) => {
         let name = e.target.name;
@@ -662,7 +664,8 @@ class ReviewDetailPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        hotel: state.getHotel
+        hotel: state.hotel.currentHotel,
+        newReview: state.review.newReview
     };
 }
 
@@ -670,7 +673,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getHotel: (id) => {
-            dispatch(actGetHotelRequest(id));
+            dispatch(actGetDetailHotel(id));
         },
         creatReview: (review) => {
             dispatch(actCreateReview(review));

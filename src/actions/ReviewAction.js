@@ -3,6 +3,7 @@ import { callApi } from '../utils/apiCaller';
 
 export const actCreateReview = (review) => (dispatch) => {
     return callApi('review', 'POST', review).then(res => {
+        window.alert('gui thanh cong');
         return dispatch({ type: Types.CREATE_REVIEW, payload: res.data })
     })
         .catch(err => {

@@ -51,12 +51,17 @@ export function registerAPI(endpoint, method = 'GET', body) {
 };
 
 
-// export function callReviewAPI(endpoint, method='POST', body){
-//     return axios({
-//         method: method,
-//         url: Config.API_URL + endpoint,
-//         data: body
-//     }).catch(err => {
-//         console.log(err);
-//     });
-// };
+export function callApiHotelReview(endpoint, method = 'GET', body) {
+    return axios({
+        method: method,
+        url: Config.API_URL + endpoint,
+        data: body,
+        headers: {
+            sessionid: getCookie('session_id'),
+            token: getCookie('token')
+            
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+};

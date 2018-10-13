@@ -6,6 +6,7 @@ import './assets/css/quickReview.css';
 import './assets/css/searchArea.css';
 import './assets/css/style.css';
 import './assets/css/reviewDetail.css';
+import './assets/css/detailHotel.css';
 import routes from './routes';
 import { Switch, Redirect, Route, BrowserRouter } from 'react-router-dom';
 import {connect} from 'react-redux';

@@ -1,0 +1,13 @@
+.list-review{
+   padding-top: 40px;
+   margin-bottom: 40px;
+   
+}
+.count-review{
+    float: left;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.write-review{
+    float: right;
+}
