@@ -8,7 +8,7 @@ export function callApi(endpoint, method = 'GET', body) {
         url: Config.API_URL + endpoint,
         data: body,
         headers: {
-            // token: getCookie('token'),
+            token: getCookie('token'),
             sessionid: getCookie('session_id')
         }
     }).catch(err => {
