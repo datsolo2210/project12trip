@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Photo from './photo';
 import LocationAdress from './locationAddress'; 
 import StarRatings from 'react-star-ratings';
+import {Link} from 'react-router-dom';
 
 class HotelItem extends Component {
     render() {
@@ -27,6 +28,7 @@ class HotelItem extends Component {
                             name='stars'
                         />
                     </div>
+                    <Link to={`/hotel-detail/${hotel.hotel_id}`} className='btn btn-search see-review' target='blank' >See Review</Link>
                 </div>
             </div>
         );

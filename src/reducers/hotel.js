@@ -3,8 +3,11 @@ import * as Types from '../constants/constant';
 const INIT_STATE = {
     hotels: [],
     autocompleteResults: [],
-    currentHotel: {},
-    hotelReview:{}
+    currentHotel:{},
+    hotelReview:{
+        photos: [],
+        reviews: []
+    }
 };
 
 const hotels = ( state = INIT_STATE, action) => {
@@ -19,7 +22,7 @@ const hotels = ( state = INIT_STATE, action) => {
             return {...state, currentHotel: action.payload};
         }
         case Types.GET_HOTEL_REVIEW_DETAIL: {
-            return {...state, hotelReview: action.payload};
+            return {...state, hotelReview: action.payload.hotel};
         }
         default: return {...state};
     }

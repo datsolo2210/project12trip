@@ -30,7 +30,7 @@ class Header extends Component {
 										<Link to='/search'>
 											<i className="fas fa-search fa-2x"></i>
 										</Link>
-										<span>{this.props.account.name} <a id="log-out" onClick={() => this.logout()}>(Log out)</a></span>
+										<span ><Link style={{color: 'white'}} to={'/'}> {this.props.account.name}</Link><a id="log-out" onClick={() => this.logout()}>(Log out)</a></span>
 									</div>
 								)
 								: null

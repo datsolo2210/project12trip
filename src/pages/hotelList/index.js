@@ -119,7 +119,6 @@ class HotelList extends Component {
                                 </div>
                             ) : (
                                     <div>
-                                        <h2>Have you been? Travelers want to see more reviews of these places</h2>
                                         {this.showHotels(hotels)}
                                     </div>
                                 )

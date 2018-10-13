@@ -4,6 +4,7 @@ import LoginPage from './pages/loginPage';
 import RegisterPage from './pages/registerPage';
 import ReviewDetailPage from './pages/reviewDetailPage';
 import Homepage from './pages/homepage';
+import DetailHotel from './pages/detailHotel';
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         exact: false,
         main : () => <ReviewDetailPage ></ReviewDetailPage>
 
+    },
+    {
+        path: '/hotel-detail/:id',
+        exact: false,
+        main: () => <DetailHotel></DetailHotel>
     }
 ];
 

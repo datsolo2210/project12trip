@@ -45,21 +45,30 @@ export const fetchAutocomplete = (keyword) => (dispatch) => {
 }
 
 export const actGetHotelRequest = (id) => (dispatch) => {
-    return callHotelApi(`hotel/detail?hotel_id=${id}&lang=vi`, 'GET', null).then(res => {
-        return dispatch({ type: Types.GET_HOTEL_DETAIL, payload: res.data })
-    })
-    .catch(err => {
-        console.log(err);
+    return new Promise((resolve, reject) => {
+        callHotelApi(`hotel/detail?hotel_id=${id}&lang=vi`, 'GET', null).then(res => {
+            dispatch({ type: Types.GET_HOTEL_DETAIL, payload: res.data.data })
+            resolve(res.data.data);
+        })
+        .catch(err => {
+            console.log(err);
+            reject(err);
+        })
     })
 }
 
 export const actGetDetailHotel = (id) => (dispatch) => {
+
     return callApiHotelReview(`hotel/${id}`, 'GET', null).then(res => {
-        return dispatch({type: Types.GET_HOTEL_REVIEW_DETAIL, payload: res.data})
+        dispatch({ type: Types.GET_HOTEL_REVIEW_DETAIL, payload: res.data });
+
     })
-    .catch(err => {
-        console.log(err);
-    })
-}   
+        .catch(err => {
+            console.log(err);
+
+        })
+
+
+}
 
 

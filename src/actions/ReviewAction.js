@@ -37,15 +37,16 @@ export const getPendingReviews = (page) => (dispatch) => {
 
 
 export const voteAct = (vote) => (dispatch) => {
-    return callApi(`review/${vote.id}/vote`, 'PUT', vote.comment).then(res => 
-        dispatch({type: Types.SUBMIT_VOTE, payload: res.data})
-    )
-    .catch(err => {
-        console.log(err);
+    return callApi(`review/${vote.id}/vote`, 'PUT', vote.comment).then(res => {
+        window.alert('gui thanh cong');
+        return dispatch({ type: Types.SUBMIT_VOTE, payload: res.data })
     })
+        .catch(err => {
+            window.alert('You can not review it again');
+        })
 }
 
-export const getMyVoted = (page) => (dispatch) =>{
+export const getMyVoted = (page) => (dispatch) => {
     return new Promise((resolve, reject) => {
         return callApi(`reviews/my-voted?page=${page}`, 'GET', null).then(res => {
             dispatch({ type: Types.GET_MY_VOTED, payload: res.data });

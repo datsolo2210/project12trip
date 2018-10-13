@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { voteAct } from '../../actions/ReviewAction';
 import ReplyReview from '../replyReview';
+import {actGetHotelRequest} from '../../actions/HotelActions';
 
 class ReviewItemPending extends Component {
     constructor(props) {
@@ -12,7 +13,16 @@ class ReviewItemPending extends Component {
             likeNumber: props.review.likeNumber,
             dislikeNumber: props.review.dislikeNumber,
             comment: "",
+
         }
+    }
+    
+    componentDidMount() {
+        const { review } = this.props;
+        this.props.getHotel(review.property).then(response => {
+            this.setState({hotel_name: response.name})
+            
+        });
     }
 
     like() {
@@ -47,7 +57,7 @@ class ReviewItemPending extends Component {
     onChange(e) {
         this.setState({
             [e.target.name]: e.target.value
-        }, () => { console.log(this.state.comment) })
+        })
     }
 
     submitCmt(id) {
@@ -59,7 +69,7 @@ class ReviewItemPending extends Component {
                     comment: this.state.comment
                 }
             };
-            console.log(vote);
+            
             this.props.submitComment(vote)
             document.getElementById("myModal").style.display = "none";
         }
@@ -71,7 +81,8 @@ class ReviewItemPending extends Component {
                     comment: this.state.comment
                 }
             };
-            this.props.submitComment(vote)
+            console.log(vote);
+            this.props.submitComment(vote);
             document.getElementById("myModal").style.display = "none";
         }
     }
@@ -89,13 +100,14 @@ class ReviewItemPending extends Component {
             return avg_rate += item.level;
         })
 
+        
 
         return (
             <div className='review-item'>
                 <div className="row">
                     <div className="col-8">
                         <small>
-                            <i>Review for hotel {review.property} - Created at {new Date(review.created).toLocaleString()}</i>
+                            <i>Review for hotel {this.state.hotel_name} - Created at {new Date(review.created).toLocaleString()}</i>
                         </small>
                         {
                             review.is_approved ? (<span>    <i className="fas fa-check-circle"></i></span>) : null
@@ -196,10 +208,20 @@ class ReviewItemPending extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        submitComment: (vote) => {
-            dispatch(voteAct(vote));
-        }
+        submitComment: (vote) => dispatch(voteAct(vote)),
+        getHotel: (id) =>  dispatch(actGetHotelRequest(id))
+        
     }
 }
+
+// const mapStateToProps = state => {
+//     return {
+//         hotel: state.hotel.currentHotel
+//     };
+// }
+
+
+
+
 
 export default connect(null, mapDispatchToProps)(ReviewItemPending);

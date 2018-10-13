@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import ReviewDetail from '../../components/reviewDetail';
 import HeadReviewDetail from '../../components/reviewDetail/HeadReviewDetail';
-import { actGetHotelRequest, actGetDetailHotel } from '../../actions/HotelActions';
+import { actGetDetailHotel } from '../../actions/HotelActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getCookie } from '../../helper';
@@ -12,9 +12,9 @@ class ReviewDetailPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hotel: {
-                photos: []
-            },
+            // hotel: {
+            //     photos: []
+            // },
 
             title: "",
             account: getCookie('account'), //account_id
@@ -66,8 +66,8 @@ class ReviewDetailPage extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps && nextProps.hotel) {
             this.setState({
-                hotel: nextProps.hotel.data
-            });
+                hotel: nextProps.hotel
+            },() => {console.log(this.state.hotel)});
         }
     }
 
@@ -536,7 +536,7 @@ class ReviewDetailPage extends Component {
         return (
             <div className="review-detail">
                 <div className="body-review">
-                    <HeadReviewDetail hotel={this.state.hotel}></HeadReviewDetail>
+                    <HeadReviewDetail hotel={this.props.hotel}></HeadReviewDetail>
                     <form onSubmit={this.submitReview}>
                         <div className="mg-top-40">
                             <h2 className="title-purpose">1. Purpose of your trip? *</h2>
@@ -664,7 +664,7 @@ class ReviewDetailPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        hotel: state.hotel.currentHotel,
+        hotel: state.hotel.hotelReview,
         newReview: state.review.newReview
     };
 }

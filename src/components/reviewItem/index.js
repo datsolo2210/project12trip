@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReplyReview from '../replyReview';
+import {actGetHotelRequest} from '../../actions/HotelActions';
+import { connect } from 'react-redux';
 
 class ReviewItem extends Component {
     constructor(props) {
@@ -10,6 +12,14 @@ class ReviewItem extends Component {
             likeNumber: props.review.likeNumber,
             dislikeNumber: props.review.dislikeNumber
         }
+    }
+
+    componentDidMount() {
+        const { review } = this.props;
+        this.props.getHotel(review.property).then(response => {
+            this.setState({hotel_name: response.name})
+            console.log(this.state.hotel_name)
+        });
     }
 
     // like(id) {
@@ -48,8 +58,8 @@ class ReviewItem extends Component {
         const { review } = this.props;
         const { likeNumber, dislikeNumber } = this.state;
 
-        var avg_rate = 0;
-        review.items.map(item => {
+        var avg_rate = 0;  
+        if(review) review.items.map(item => {
             return avg_rate += item.level;
         })
 
@@ -58,7 +68,7 @@ class ReviewItem extends Component {
                 <div className="row">
                     <div className="col-8">
                         <small>
-                            <i>Review for hotel {review.property} - Created at {new Date(review.created).toLocaleString()}</i>
+                            <i>Review for hotel {this.state.hotel_name} - Created at {new Date(review.created).toLocaleString()}</i>
                         </small>
                         {
                             review.is_approved ? (<span>    <i className="fas fa-check-circle"></i></span>) : null
@@ -141,13 +151,13 @@ class ReviewItem extends Component {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         likeReview: (id) => dispatch(likeReview(id)),
-//         dislikeReview: (id) => dispatch(dislikeReview(id)),
-//         unlikeReview: (id) => dispatch(unlikeReview(id)),
-//         undislikeReview: (id) => dispatch(undislikeReview(id))
-//     }
-// }
+function mapDispatchToProps(dispatch) {
+    return {
+        getHotel: (id) =>  dispatch(actGetHotelRequest(id))
+        
+    }
+}
 
-export default ReviewItem;
+
+
+export default connect(null, mapDispatchToProps)(ReviewItem);

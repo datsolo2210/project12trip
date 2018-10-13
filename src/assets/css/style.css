@@ -144,3 +144,9 @@ button.btn.btn-vote.active {
 .fa-check-circle {
 	color: #2ecc71;
 }
+
+.see-review{
+	margin-top: 20px;
+	width: 130px;
+	height: 40px;
+}

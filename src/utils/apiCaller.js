@@ -11,9 +11,7 @@ export function callApi(endpoint, method = 'GET', body) {
             token: getCookie('token'),
             sessionid: getCookie('session_id')
         }
-    }).catch(err => {
-        console.log(err);
-    });
+    })
 };
 
 export function callHotelApi(endpoint, method = 'GET', body) {
