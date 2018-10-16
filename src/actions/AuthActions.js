@@ -13,6 +13,7 @@ export const actLoginRequest = (login) => (dispatch) => {
             console.log(data);
         }).catch(err => {
             console.log(err);
+            window.alert('login false');
             reject(err);
         });
     })

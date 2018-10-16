@@ -7,7 +7,7 @@ class LocationAdress extends Component {
         return (
             <div>
                 <div >
-                    <a href={`hotel-detail/${this.props.id}`} target='blank' className="location_name">{this.props.children}</a>
+                    <Link to={`hotel-detail/${this.props.id}`} target='blank' className="location_name">{this.props.children}</Link>
                 </div>
                 <div className="location_address">
                     {this.props.address}

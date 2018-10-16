@@ -476,7 +476,8 @@ class ReviewDetailPage extends Component {
         if(travel_type.length===0|| travel_with.length===0 || expect_level.length===0 || text_dislike.length===0 || text_like === 0) alert('please ');
         else
         this.props.creatReview(review);
-
+        let {history}=this.props;
+        history.goBack();
     }
 
     onChange = (e) => {

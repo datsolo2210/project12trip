@@ -38,14 +38,14 @@ class Profile extends Component {
                         {account.birthday ? new Date(account.birthday).toLocaleDateString('en-GB') : 'Undefined'}
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-3">
                         <label>Gender:</label>
                     </div>
                     <div className="col-9">
                         {account.gender ? account.gender : 'Undefined'}
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }

@@ -30,7 +30,7 @@ const routes = [
     {
         path : '/review-detail/:id', 
         exact: false,
-        main : () => <ReviewDetailPage ></ReviewDetailPage>
+        main : ({history}) => <ReviewDetailPage >history={history}</ReviewDetailPage>
 
     },
     {

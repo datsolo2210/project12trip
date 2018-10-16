@@ -73,7 +73,7 @@ class ReviewItem extends Component {
                         {
                             review.is_approved ? (<span>    <i className="fas fa-check-circle"></i></span>) : null
                         }
-                        {/* <h6>Writen by {review.account.name}</h6> */}
+                        <h6>Writen by {review.account.name}</h6>
                         <h4>{review.title}</h4>
                         <div>
                             <div className="row">
